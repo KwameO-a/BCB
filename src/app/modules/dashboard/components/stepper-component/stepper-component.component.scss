@@ -1,0 +1,165 @@
+* {
+  --stepper-circle-width: 20px;
+  --stepper-circle-height: 20px;
+  --stepper-divider-height: 2px;
+  --stepper-divider-width: 35px;
+  --stepper-divider-offset: 0px;
+}
+
+:host {
+  width: fit-content;
+  height: fit-content;
+  flex: 0;
+}
+
+.main-stepper-container {
+  padding: 20px;
+}
+
+.circle-tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  width: 38px;
+  height: 38px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 999px;
+
+  span {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: 0.005em;
+    color: #1f2937;
+  }
+}
+
+.icon-tab-complete {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-tab-complete-active {
+  display: block;
+}
+
+.circle-tab-active {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  width: 38px;
+  height: 38px;
+  background: #00af43;
+  border-radius: 999px;
+}
+
+.circle {
+  width: var(--stepper-circle-width);
+  height: var(--stepper-circle-height);
+
+  border-radius: 50%;
+
+  // background-color: red;
+  // margin-right: 10px;
+}
+
+.in_progress_stepper {
+  // background: linear-gradient(93.67deg, #00BFFF 1.23%, #006EFC 58.64%);
+
+  background-color: grey;
+}
+
+.completed_stepper {
+  background: linear-gradient(93.67deg, #00bfff 1.23%, #006efc 58.64%);
+}
+
+.stepper-divider {
+  width: var(--stepper-divider-width);
+  height: var(--stepper-divider-height);
+
+  background-color: #d1d5db;
+  // margin-left: calc(var( --stepper-circle-height)/2 - var(--stepper-divider-offset));
+  margin: 0px 20px;
+  // margin-top: -2px;
+  z-index: 0;
+}
+
+.stepper-divider-complete {
+  width: var(--stepper-divider-width);
+
+  height: var(--stepper-divider-height);
+
+  background-color: #01a4fe;
+  // margin-left: calc(var( --stepper-circle-height)/2 - var(--stepper-divider-offset));
+
+  // margin-top: -2px;
+
+  z-index: 0;
+}
+
+.stepper-divider-complete:first-child {
+}
+
+.stepper-progress-container {
+  // width: 200px;
+  display: flex;
+  flex-direction: row;
+  // justify-content:center;
+  align-items: center;
+}
+
+.stepper-progress-circle {
+  display: flex;
+  align-items: center;
+
+  // margin-top: -2px;
+
+  cursor: pointer;
+}
+
+.activated-step {
+  background-color: #0000000b;
+  border-radius: 10px 0px 0px 10px;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .circle-tab {
+    width: 30px;
+    height: 30px;
+  }
+
+  .main-stepper-container {
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .circle-tab {
+    width: 26px;
+    height: 26px;
+  }
+
+  .main-stepper-container {
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .stepper-divider {
+    margin: 0px 10px;
+    width: 15px;
+  }
+}

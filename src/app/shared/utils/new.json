@@ -1,0 +1,152 @@
+{
+    "hostHeaderInfo": {
+        "sourceCode": "ACCOUNT OPENING",
+        "requestId": "45209778",
+        "countryCode": "GH",
+        "responseCode": "000",
+        "responseMessage": "SUCCESS"
+    },
+    "status": "DRAFT",
+    "accountInfo": {
+        "reason": "Growth project,Makes payment to suppliers and vendors,Collection Solutions,Salary Payments",
+        "businessType": "Test",
+        "fundSource": "Proceeds from Sales,Shareholders Funds, Profit from Business Operations",
+        "rm": "Dordzie, Christian C ",
+        "freqPref": "Monthly",
+        "mode": [
+            {
+                "contactMode": "Email",
+                "businessId": 203
+            },
+            {
+                "contactMode": "Phone Call",
+                "businessId": 203
+            },
+            {
+                "contactMode": "SMS",
+                "businessId": 203
+            }
+        ],
+        "preferredBranch": "ACCRA CASH CENTRE",
+        "alerts": {
+            "primaryEmail": "botwee@stanbic.com.gh",
+            "primaryPhone": "0246692602",
+            "otherEmails": [
+                "botwee@stanbic.com.gh"
+            ],
+            "otherPhones": [
+                "0246692602"
+            ]
+        },
+        "businessId": 203
+    },
+    "businessInfo": {
+        "id": 203,
+        "residency": "Resident",
+        "registeredName": "Test",
+        "tradeName": "Test",
+        "physicalAddress": "Test",
+        "telephone": "0246692602",
+        "sector": "ACTIVITIES OF CALL CENTRES",
+        "registrationNo": "P123466",
+        "regDate": "Nov 2, 2022 12:00:00 AM",
+        "tin": "P1234567",
+        "annualTurnover": 10000.0,
+        "affiliatedCompany": "Test",
+        "applicationStage": 1,
+        "status": "DRAFT",
+        "createdDate": "Mar 1, 2023 11:01:42 AM",
+        "createdBy": "0246692602",
+        "lastUpdateDate": "Mar 2, 2023 10:26:52 AM",
+        "additionalDetails": "test"
+    },
+    "newManagementInfoList": {
+        "principal": {
+            "surname": "Test",
+            "firstname": "Test",
+            "othernames": "Test",
+            "mothersMaidenName": "Test",
+            "dateOfBirth": "3/2/2023",
+            "gender": "MALE",
+            "nationality": "Ghana",
+            "residentialPermit": "Test",
+            "meansOfIdentification": "Passport (Non-Ghanaians)",
+            "idNumber": "Test",
+            "idIssueDate": "2023-02-02",
+            "idExpiryDate": "2023-02-02",
+            "occupation": "Test",
+            "city": "Test",
+            "jobTitle": "Test",
+            "primaryPhoneNumber": "Test",
+            "secondaryPhoneNumber": "Test",
+            "email": "Test",
+            "mmda": "Test",
+            "region": "Test"
+        },
+        "directors": [
+            {
+                "surname": "Test",
+                "firstname": "Test",
+                "othernames": "Test",
+                "mothersMaidenName": "Test",
+                "dateOfBirth": "2023-02-02",
+                "gender": "MALE",
+                "nationality": "Ghana",
+                "residentialPermit": "Test",
+                "meansOfIdentification": "Test",
+                "idNumber": "Test",
+                "idIssueDate": "2023-02-02",
+                "idExpiryDate": "2023-02-02",
+                "occupation": "Test",
+                "city": "Test",
+                "jobTitle": "Test",
+                "primaryPhoneNumber": "Test",
+                "secondaryPhoneNumber": "Test",
+                "email": "Test",
+                "mmda": "Test",
+                "region": "Test",
+                "statusAsDirector": []
+            }
+        ],
+        "additionalDetails": [
+            {
+                "nameOfAffiliatedCompany": "Test",
+                "fullname": "Test",
+                "percentageHolding": "Test",
+                "email": "Test",
+                "address": "Test",
+                "status": "Test",
+                "nationality": "Ghana",
+                "beneficiaries": "Test",
+                "registrationCertificate": "Test",
+                "mobileNumber": "Test",
+                "countryOfIncoporation": ""
+            }
+        ],
+        "signitory": [
+            {
+                "surname": "Emmanuel",
+                "firstname": "Emmanuel",
+                "othernames": "Emmanuel",
+                "mothersMaidenName": "Emmanuel",
+                "dateOfBirth": "2023-02-02",
+                "gender": "MALE",
+                "nationality": "Ghana",
+                "residentialPermit": "1234567",
+                "meansOfIdentification": "Passport (Non-Ghanaians)",
+                "idNumber": "Emmanuel",
+                "idIssueDate": "2023-02-02",
+                "idExpiryDate": "2023-02-02",
+                "occupation": "Test",
+                "city": "Test",
+                "jobTitle": "Test",
+                "primaryPhoneNumber": "Test",
+                "secondaryPhoneNumber": "Test",
+                "email": "Test",
+                "mmda": "Test",
+                "region": "Test"
+            }
+        ]
+    },
+    "docInfo": {}
+}

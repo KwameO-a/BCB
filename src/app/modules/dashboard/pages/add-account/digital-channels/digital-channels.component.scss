@@ -1,0 +1,172 @@
+:host {
+  --login-form-width: 100%;
+  --login-form-height: 100%;
+}
+
+h3 {
+  margin: 0px;
+}
+
+.main-content-body {
+  width: 100%;
+  padding: 0px 0px 0px 0px;
+  box-sizing: border-box;
+}
+
+.account-details-forms-container {
+  width: 100%;
+}
+
+.inner-form1 {
+  width: 100%;
+}
+
+.inner-form1 h2 {
+  font-family: "BentonSans Light";
+  font-weight: normal;
+  font-size: 40px;
+  // padding: 30px;
+  // margin-left: 100px;
+  margin-top: 20px;
+  margin-left: 110px;
+  margin-bottom: 50px;
+  color: #ffb81d;
+  font-weight: 300;
+}
+
+.entire-main-form-side mat-form-field mat-label {
+  text-transform: uppercase;
+}
+
+.entire-main-form-side {
+  // padding-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  // flex-wrap: wrap;
+  width: 100%;
+}
+
+.left-side mat-form-field {
+  width: 100%;
+}
+
+.right-side mat-form-field {
+  width: 100%;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-right: 20px;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+mat-form-field {
+  // padding-bottom: 30px;
+}
+
+.regName {
+  display: flex;
+  flex-direction: column;
+
+  border: 0.5px dashed #00000011;
+
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.regName .checkboxes .left-side-check {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+mat-form-field mat-label {
+  font-family: "BentonSans Regular";
+}
+
+.inner-regName mat-label {
+  font-family: "BentonSans";
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: row;
+  padding: 7px;
+}
+
+.checkboxes .right-side-check {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.add-item-button-container {
+  display: flex;
+  align-items: center;
+  color: rgb(0, 137, 255);
+}
+
+.authorizers-container {
+  display: flex;
+  flex-direction: column;
+}
+.authorizers-form-container {
+  display: flex;
+  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.authorizers-section {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.authorizers-form-container mat-form-field:nth-child(1) {
+  margin-right: 20px;
+}
+
+.capturer-container {
+  display: flex;
+  flex-direction: column;
+}
+.remove-item-button-container {
+  color: red;
+}
+@media (min-width: 768px) and (max-width: 1450px) {
+  .left-side mat-form-field {
+    width: 100%;
+  }
+
+  .right-side mat-form-field {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .entire-main-form-side {
+    flex-direction: column;
+    .left-side,
+    .right-side {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 472px) {
+  .entire-main-form-side {
+    flex-direction: column;
+    .left-side,
+    .right-side {
+      width: 100%;
+    }
+  }
+}

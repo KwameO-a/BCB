@@ -1,0 +1,33 @@
+
+.main-container{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content:center;
+  align-items:center;
+
+flex-direction: column;
+background-color: white;
+}
+
+
+.map-svg{
+  // width: 130px;
+  
+}
+
+.main-container .heading{
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.main-container .sub-heading{
+  font-size: 16px;
+
+
+}
+.margin-bottom{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}

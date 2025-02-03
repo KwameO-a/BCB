@@ -1,0 +1,1787 @@
+<ng-container [ngSwitch]="PAGE_STATE">
+  <section *ngSwitchCase="PROGRESS.DONE" class="main-content-body">
+    <section class="account-details-forms-container">
+      <section class="entire-form1">
+        <div class="inner-form1">
+          <section class="management-details-container">
+            <mat-accordion>
+              <mat-expansion-panel
+                style="width: 100%"
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    KEY PRINCIPAL'S OFFICER'S DETAILS
+                  </mat-panel-title>
+
+                  <mat-panel-description>
+                    <span class="edit-expansion-header">EDIT</span>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <form class="formOne" [formGroup]="principalOfficer">
+                  <div class="left-side">
+                    <mat-form-field
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>SURNAME</mat-label>
+                      <input
+                        matInput
+                        placeholder="Surname"
+                        [(ngModel)]="managementInfo.principal.surname"
+                        name="surname"
+                        formControlName="surname"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>OTHER NAMES</mat-label>
+                      <input
+                        matInput
+                        placeholder="Other Name"
+                        [(ngModel)]="managementInfo.principal.othernames"
+                        name="othernames"
+                        formControlName="othernames"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>DATE OF BIRTH</mat-label>
+                      <input
+                        matInput
+                        [matDatepicker]="pOfficerDOBPicker"
+                        [(ngModel)]="managementInfo.principal.dateOfBirth"
+                        [max]="todayDate"
+                        placeholder="Date of Birth"
+                        name="dateOfBirth"
+                        formControlName="dateOfBirth"
+                      />
+                      <mat-datepicker-toggle
+                        matSuffix
+                        [for]="pOfficerDOBPicker"
+                      ></mat-datepicker-toggle>
+                      <mat-datepicker #pOfficerDOBPicker></mat-datepicker>
+                    </mat-form-field>
+
+                    <section
+                      class="select_with_search_dropdown inputs_margin"
+                      style="width: 100%; margin-bottom: 50px"
+                    >
+                      <app-search-dropdown
+                        [items]="COUNTRIES"
+                        [selected]="managementInfo.principal.nationality"
+                        [size]="'small'"
+                        [label]="'name'"
+                        [uid]="'name'"
+                        (afterChange)="getPrincipalSelectedCountry($event)"
+                        [placeholder]="'NATIONALITY (SELECT COUNTRY)'"
+                      >
+                      </app-search-dropdown>
+                    </section>
+
+                    <section>
+                      <mat-form-field appearance="outline" style="width: 100%">
+                        <mat-label>MEANS OF IDENTIFICATION</mat-label>
+                        <mat-select
+                          name="meansOfIdentification"
+                          formControlName="meansOfIdentification"
+                          [(ngModel)]="
+                            managementInfo.principal.meansOfIdentification
+                          "
+                        >
+                          <mat-option
+                            [value]="identity"
+                            *ngFor="let identity of IDENTIFY_OPTIONS"
+                          >
+                            {{ identity }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </section>
+
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>ID ISSUE DATE</mat-label>
+
+                      <input
+                        matInput
+                        [(ngModel)]="managementInfo.principal.idIssueDate"
+                        [matDatepicker]="pOfficerIdIssueDatePicker"
+                        [max]="todayDate"
+                        placeholder="ID Issue Date"
+                        name="idIssueDate"
+                        formControlName="idIssueDate"
+                      />
+                      <mat-datepicker-toggle
+                        matSuffix
+                        [for]="pOfficerIdIssueDatePicker"
+                      ></mat-datepicker-toggle>
+                      <mat-datepicker
+                        #pOfficerIdIssueDatePicker
+                      ></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>OCCUPATION</mat-label>
+                      <input
+                        matInput
+                        placeholder="Occupation"
+                        [(ngModel)]="managementInfo.principal.occupation"
+                        name="occupation"
+                        formControlName="occupation"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>JOB TITLE</mat-label>
+                      <input
+                        matInput
+                        placeholder="Job Title"
+                        [(ngModel)]="managementInfo.principal.jobTitle"
+                        name="jobTitle"
+                        formControlName="jobTitle"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>RESIDENTIAL ADDRESS</mat-label>
+                      <input
+                        matInput
+                        placeholder="Residential Address"
+                        [(ngModel)]="
+                          managementInfo.principal.residentialAddress
+                        "
+                        name="residentialAddress"
+                        formControlName="residentialAddress"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>NEAREST LANDMARK</mat-label>
+                      <input
+                        matInput
+                        placeholder="Nearest Landmark"
+                        [(ngModel)]="managementInfo.principal.nearestLandmark"
+                        name="nearestLandmark"
+                        formControlName="nearestLandmark"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label
+                        >METROPOLITAN, MUNICIPAL DISTRICT ASSEMBLY AREA
+                        (MMDA)</mat-label
+                      >
+                      <input
+                        matInput
+                        placeholder="MMDA"
+                        [(ngModel)]="managementInfo.principal.mmda"
+                        name="mmda"
+                        formControlName="mmda"
+                      />
+                    </mat-form-field>
+                    <h4
+                      style="
+                        color: grey;
+                        opacity: 0.5;
+                        margin-top: -10px;
+                        margin-bottom: 20px;
+                      "
+                    >
+                      * Optional
+                    </h4>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>REGION</mat-label>
+                      <input
+                        matInput
+                        placeholder="Region"
+                        [(ngModel)]="managementInfo.principal.region"
+                        name="region"
+                        formControlName="region"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>EMAIL ADDRESS</mat-label>
+                      <input
+                        matInput
+                        placeholder="Email"
+                        [(ngModel)]="managementInfo.principal.email"
+                        name="email"
+                        formControlName="email"
+                      />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="right-side">
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>FIRSTNAME</mat-label>
+                      <input
+                        matInput
+                        placeholder="First Name"
+                        [(ngModel)]="managementInfo.principal.firstname"
+                        name="firstname"
+                        formControlName="firstname"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>MOTHER'S MAIDEN NAME</mat-label>
+                      <input
+                        matInput
+                        placeholder="Mother's Maiden Name"
+                        [(ngModel)]="managementInfo.principal.mothersMaidenName"
+                        name="mothersMaidenName"
+                        formControlName="mothersMaidenName"
+                      />
+                    </mat-form-field>
+
+                    <div class="regName">
+                      <div class="inner-regName">
+                        <mat-label
+                          style="
+                            font-size: 14px;
+                            font-family: 'BentonSans Regular';
+                          "
+                          >GENDER</mat-label
+                        >
+                      </div>
+
+                      <div class="checkboxes">
+                        <mat-radio-group
+                          [(ngModel)]="managementInfo.principal.gender"
+                          aria-labelledby="example-radio-group-label"
+                          formControlName="gender"
+                        >
+                          <mat-radio-button
+                            class="example-radio-button"
+                            *ngFor="let gender of genderList"
+                            [value]="gender"
+                          >
+                            {{ gender }}
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                    </div>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>RESIDENT PERMIT NO.</mat-label>
+                      <input
+                        matInput
+                        placeholder="Resident Permit No."
+                        [(ngModel)]="managementInfo.principal.residentialPermit"
+                        name="residentialPermit"
+                        formControlName="residentialPermit"
+                      />
+                    </mat-form-field>
+
+                    <h4
+                      style="
+                        color: grey;
+                        opacity: 0.5;
+                        margin-top: -10px;
+                        margin-bottom: 20px;
+                      "
+                    >
+                      * Required only for non-Ghanaians
+                    </h4>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>ID NUMBER</mat-label>
+                      <input
+                        matInput
+                        placeholder="ID Number"
+                        [(ngModel)]="managementInfo.principal.idNumber"
+                        name="idNumber"
+                        formControlName="idNumber"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>ID EXPIRY DATE</mat-label>
+
+                      <input
+                        matInput
+                        [matDatepicker]="pOfficerIdExpiryDatePicker"
+                        [(ngModel)]="managementInfo.principal.idExpiryDate"
+                        placeholder="ID Expiry Date"
+                        name="idExpiryDate"
+                        formControlName="idExpiryDate"
+                      />
+                      <mat-datepicker-toggle
+                        matSuffix
+                        [for]="pOfficerIdExpiryDatePicker"
+                      ></mat-datepicker-toggle>
+                      <mat-datepicker
+                        #pOfficerIdExpiryDatePicker
+                      ></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>CITY/TOWN</mat-label>
+                      <input
+                        matInput
+                        placeholder="City/Town"
+                        [(ngModel)]="managementInfo.principal.city"
+                        name="city"
+                        formControlName="city"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>PRIMARY PHONE NUMBER</mat-label>
+                      <input
+                        type="tel"
+                        matInput
+                        placeholder="Phone Number"
+                        [(ngModel)]="
+                          managementInfo.principal.primaryPhoneNumber
+                        "
+                        name="primaryPhoneNumber"
+                        formControlName="primaryPhoneNumber"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>SECONDARY PHONE NUMBER</mat-label>
+                      <input
+                        type="tel"
+                        [(ngModel)]="
+                          managementInfo.principal.secondaryPhoneNumber
+                        "
+                        matInput
+                        placeholder="Other Number"
+                        name="secondaryPhoneNumber"
+                        formControlName="secondaryPhoneNumber"
+                      />
+                    </mat-form-field>
+
+                    <h4
+                      style="
+                        color: grey;
+                        opacity: 0.5;
+                        margin-top: -10px;
+                        margin-bottom: 20px;
+                      "
+                    >
+                      * Optional
+                    </h4>
+                  </div>
+                </form>
+              </mat-expansion-panel>
+              <!-- *ngIf="package !== ACCOUNT_PACKAGES.SOLE_PROPRITOR" -->
+              <ng-container>
+                <mat-expansion-panel
+                  style="width: 100%"
+                  (opened)="panelOpenState = true"
+                  (closed)="panelOpenState = false"
+                >
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      ACCOUNT SIGNATORY'S DETAILS
+                    </mat-panel-title>
+
+                    <mat-panel-description>
+                      <span class="edit-expansion-header">EDIT</span>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <section
+                    *ngFor="
+                      let item of accountSignitariesFormGroups;
+                      let count = index
+                    "
+                  >
+                    <section class="managment-header-info">
+                      <span>{{
+                        managementInfo.signitory[count].surname || ""
+                      }}</span>
+                      <span>
+                        <!-- <button mat-icon-button color="primary" aria-label="Button to remove a management info">
+                        <img class="icon-borders" [src]="assetUrl+'/assets/svgs/icn_cancel.svg'" alt="" srcset="">
+                      </button> -->
+                        <button
+                          (click)="removeAccountSignatory(count)"
+                          mat-flat-button
+                          aria-label="Button to remove a management info"
+                        >
+                          <div class="remove-button">REMOVE SIGNATORY</div>
+                        </button>
+                      </span>
+                    </section>
+                    <form class="formOne" [formGroup]="item">
+                      <div class="left-side">
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>SURNAME</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].surname
+                            "
+                            name="surname"
+                            formControlName="surname"
+                            matInput
+                            placeholder="Surname"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>OTHER NAMES</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].othernames
+                            "
+                            name="othernames"
+                            formControlName="othernames"
+                            matInput
+                            placeholder="Other Name"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          appearance="outline"
+                        >
+                          <mat-label>DATE OF BIRTH</mat-label>
+
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].dateOfBirth
+                            "
+                            name="dateOfBirth"
+                            formControlName="dateOfBirth"
+                            matInput
+                            [matDatepicker]="signatoryDOBPicker"
+                            [max]="todayDate"
+                            placeholder="Date of Birth"
+                          />
+                          <mat-datepicker-toggle
+                            matSuffix
+                            [for]="signatoryDOBPicker"
+                          ></mat-datepicker-toggle>
+                          <mat-datepicker #signatoryDOBPicker></mat-datepicker>
+                        </mat-form-field>
+
+                        <section
+                          class="select_with_search_dropdown inputs_margin"
+                          style="width: 100%; margin-bottom: 10px"
+                        >
+                          <app-search-dropdown
+                            [items]="COUNTRIES"
+                            [selected]="
+                              managementInfo.signitory[count].nationality
+                            "
+                            [size]="'small'"
+                            [label]="'name'"
+                            [uid]="'name'"
+                            (afterChange)="
+                              getSignatorySelectedCountry(count, $event)
+                            "
+                            [placeholder]="'Nationality (Select Country)'"
+                          >
+                          </app-search-dropdown>
+                        </section>
+
+                        <mat-form-field
+                          appearance="outline"
+                          style="width: 100%"
+                        >
+                          <mat-label>MEANS OF IDENTIFICATION</mat-label>
+                          <mat-select
+                            name="meansOfIdentification"
+                            formControlName="meansOfIdentification"
+                            [(ngModel)]="
+                              managementInfo.signitory[count]
+                                .meansOfIdentification
+                            "
+                            placeholder="Means of Identification"
+                          >
+                            <mat-option
+                              [value]="identity"
+                              *ngFor="let identity of IDENTIFY_OPTIONS"
+                            >
+                              {{ identity }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          appearance="outline"
+                        >
+                          <mat-label>ID ISSUE DATE</mat-label>
+
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].idIssueDate
+                            "
+                            name="idIssueDate"
+                            formControlName="idIssueDate"
+                            matInput
+                            [matDatepicker]="signatoryIdIssuePicker"
+                            [max]="todayDate"
+                            placeholder="ID Issue Date"
+                          />
+                          <mat-datepicker-toggle
+                            matSuffix
+                            [for]="signatoryIdIssuePicker"
+                          ></mat-datepicker-toggle>
+                          <mat-datepicker
+                            #signatoryIdIssuePicker
+                          ></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>OCCUPATION</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].occupation
+                            "
+                            name="occupation"
+                            formControlName="occupation"
+                            matInput
+                            placeholder="Occupation"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>JOB TITLE</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].jobTitle
+                            "
+                            name="jobTitle"
+                            formControlName="jobTitle"
+                            matInput
+                            placeholder="Job Title"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>RESIDENTIAL ADDRESS</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].residentialAddress
+                            "
+                            name="residentialAddress"
+                            formControlName="residentialAddress"
+                            matInput
+                            placeholder="Residential Address"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>NEAREST LANDMARK</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].nearestLandmark
+                            "
+                            name="nearestLandmark"
+                            formControlName="nearestLandmark"
+                            matInput
+                            placeholder="Nearest Landmark"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label
+                            >METROPOLITAN, MUNICIPAL DISTRICT ASSEMBLY AREA
+                            (MMDA)</mat-label
+                          >
+                          <input
+                            [(ngModel)]="managementInfo.signitory[count].mmda"
+                            name="mmda"
+                            formControlName="mmda"
+                            matInput
+                            placeholder="MMDA"
+                          />
+                        </mat-form-field>
+
+                        <h4
+                          style="
+                            color: grey;
+                            opacity: 0.5;
+                            margin-top: -10px;
+                            margin-bottom: 20px;
+                          "
+                        >
+                          * Optional
+                        </h4>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>REGION</mat-label>
+                          <input
+                            [(ngModel)]="managementInfo.signitory[count].region"
+                            name="region"
+                            formControlName="region"
+                            matInput
+                            placeholder="Region"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>EMAIL ADDRESS</mat-label>
+                          <input
+                            [(ngModel)]="managementInfo.signitory[count].email"
+                            name="email"
+                            formControlName="email"
+                            matInput
+                            placeholder="Email"
+                          />
+                        </mat-form-field>
+                      </div>
+
+                      <div class="right-side">
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>FIRST NAME</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].firstname
+                            "
+                            name="firstname"
+                            formControlName="firstname"
+                            matInput
+                            placeholder="First Name"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>MOTHER'S MAIDEN NAME</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].mothersMaidenName
+                            "
+                            name="mothersMaidenName"
+                            formControlName="mothersMaidenName"
+                            matInput
+                            placeholder="Mother's Maiden Name"
+                          />
+                        </mat-form-field>
+
+                        <div class="regName">
+                          <div class="inner-regName">
+                            <mat-label
+                              style="
+                                font-size: 14px;
+                                font-family: 'BentonSans Regular';
+                              "
+                              >GENDER</mat-label
+                            >
+                          </div>
+
+                          <div class="checkboxes">
+                            <mat-radio-group
+                              [(ngModel)]="
+                                managementInfo.signitory[count].gender
+                              "
+                              aria-labelledby="example-radio-group-label"
+                              formControlName="gender"
+                            >
+                              <mat-radio-button
+                                class="example-radio-button"
+                                *ngFor="let gender of genderList"
+                                [value]="gender"
+                              >
+                                {{ gender }}
+                              </mat-radio-button>
+                            </mat-radio-group>
+                          </div>
+                        </div>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>RESIDENT PERMIT NO.</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].residentialPermit
+                            "
+                            name="residentialPermit"
+                            formControlName="residentialPermit"
+                            matInput
+                            placeholder="Resident Permit No."
+                          />
+                        </mat-form-field>
+
+                        <h4
+                          style="
+                            color: grey;
+                            opacity: 0.5;
+                            margin-top: -10px;
+                            margin-bottom: 20px;
+                          "
+                        >
+                          * Required only for non-Ghanaians
+                        </h4>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>ID NUMBER</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].idNumber
+                            "
+                            name="idNumber"
+                            formControlName="idNumber"
+                            matInput
+                            placeholder="ID Number"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          appearance="outline"
+                        >
+                          <mat-label>ID EXPIRY DATE</mat-label>
+
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].idExpiryDate
+                            "
+                            name="idExpiryDate"
+                            formControlName="idExpiryDate"
+                            matInput
+                            [matDatepicker]="signatoryIdExpiryPicker"
+                            placeholder="ID Expiry Date"
+                          />
+                          <mat-datepicker-toggle
+                            matSuffix
+                            [for]="signatoryIdExpiryPicker"
+                          ></mat-datepicker-toggle>
+                          <mat-datepicker
+                            #signatoryIdExpiryPicker
+                          ></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>CITY/TOWN</mat-label>
+                          <input
+                            [(ngModel)]="managementInfo.signitory[count].city"
+                            name="city"
+                            formControlName="city"
+                            matInput
+                            placeholder="City/Town"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>PRIMARY PHONE NUMBER</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count].primaryPhoneNumber
+                            "
+                            name="primaryPhoneNumber"
+                            formControlName="primaryPhoneNumber"
+                            type="tel"
+                            matInput
+                            placeholder="Phone Number"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>SECONDARY PHONE NUMBER</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.signitory[count]
+                                .secondaryPhoneNumber
+                            "
+                            name="secondaryPhoneNumber"
+                            formControlName="secondaryPhoneNumber"
+                            type="tel"
+                            matInput
+                            placeholder="Other Number"
+                          />
+                        </mat-form-field>
+
+                        <h4
+                          style="
+                            color: grey;
+                            opacity: 0.5;
+                            margin-top: -10px;
+                            margin-bottom: 20px;
+                          "
+                        >
+                          * Optional
+                        </h4>
+
+                        <div class="signatory-details">
+                          <h1>SIGNATORY DETAILS</h1>
+
+                          <mat-form-field
+                            style="width: 100%"
+                            class="example-full-width"
+                            appearance="outline"
+                          >
+                            <mat-label>CLASS OF SIGNATORY</mat-label>
+                            <input
+                              [(ngModel)]="
+                                managementInfo.signitory[count].classOfSignatory
+                              "
+                              name="classOfSignatory"
+                              formControlName="classOfSignatory"
+                              matInput
+                              placeholder="Class of Signatory"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </form>
+                  </section>
+
+                  <section class="management-info-bottom">
+                    <button
+                      (click)="addAccountSignatory()"
+                      mat-flat-button
+                      aria-label="Button to remove a management info"
+                    >
+                      <section class="remove-management-button">
+                        <img
+                          style="width: 15px; height: 15px; margin-right: 10px"
+                          [src]="assetUrl + 'assets/svgs/bcc_add_icn.svg'"
+                          alt=""
+                        />
+                        <div class="add-button">ADD NEW SIGNATORY</div>
+                      </section>
+                    </button>
+                  </section>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel
+                  style="width: 100%"
+                  (opened)="panelOpenState = true"
+                  (closed)="panelOpenState = false"
+                >
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      DETAILS OF DIRECTORS / EXECUTIVES / TRUSTEES ETC.. INFO
+                    </mat-panel-title>
+
+                    <mat-panel-description>
+                      <span></span>
+                      <span class="edit-expansion-header">EDIT</span>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <section
+                    *ngFor="let item of directorsFormGroups; let count = index"
+                  >
+                    <section class="managment-header-info">
+                      <span>{{
+                        managementInfo.directors[count].surname || ""
+                      }}</span>
+                      <span>
+                        <!-- <button mat-icon-button color="primary" aria-label="Button to remove a management info">
+                        <img class="icon-borders" [src]="assetUrl+'/assets/svgs/icn_cancel.svg'" alt="" srcset="">
+                      </button> -->
+                        <button
+                          (click)="removeDirector(count)"
+                          mat-flat-button
+                          aria-label="Button to remove a management info"
+                        >
+                          <div class="remove-button">
+                            REMOVE DIRECTOR / EXECUTIVE / TRUSTEE
+                          </div>
+                        </button>
+                      </span>
+                    </section>
+                    <form class="formOne" [formGroup]="item">
+                      <div class="left-side">
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>SURNAME</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].surname
+                            "
+                            name="surname"
+                            formControlName="surname"
+                            matInput
+                            placeholder="Surname"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>OTHER NAMES</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].othernames
+                            "
+                            name="othernames"
+                            formControlName="othernames"
+                            matInput
+                            placeholder="Other Name"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          appearance="outline"
+                        >
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].dateOfBirth
+                            "
+                            name="dateOfBirth"
+                            formControlName="dateOfBirth"
+                            matInput
+                            [matDatepicker]="execDOBPicker"
+                            [max]="todayDate"
+                            placeholder="Date of Birth"
+                          />
+                          <mat-datepicker-toggle
+                            matSuffix
+                            [for]="execDOBPicker"
+                          ></mat-datepicker-toggle>
+                          <mat-datepicker #execDOBPicker></mat-datepicker>
+                        </mat-form-field>
+
+                        <section
+                          class="select_with_search_dropdown inputs_margin"
+                          style="width: 100%; margin-bottom: 20px"
+                        >
+                          <app-search-dropdown
+                            [items]="COUNTRIES"
+                            [selected]="
+                              managementInfo.directors[count].nationality
+                            "
+                            [size]="'small'"
+                            [label]="'name'"
+                            [uid]="'name'"
+                            (afterChange)="
+                              getDirectorSelectedCountry(count, $event)
+                            "
+                            [placeholder]="'Nationality (Select Country)'"
+                          >
+                          </app-search-dropdown>
+                        </section>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>MEANS OF IDENTIFICATION</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count]
+                                .meansOfIdentification
+                            "
+                            name="meansOfIdentification"
+                            formControlName="meansOfIdentification"
+                            matInput
+                            placeholder="Means of Identification"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          appearance="outline"
+                        >
+                          <mat-label>ID ISSUE DATE</mat-label>
+
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].idIssueDate
+                            "
+                            name="idIssueDate"
+                            formControlName="idIssueDate"
+                            matInput
+                            [matDatepicker]="execIdIssuePicker"
+                            [max]="todayDate"
+                            placeholder="ID Issue Date"
+                          />
+                          <mat-datepicker-toggle
+                            matSuffix
+                            [for]="execIdIssuePicker"
+                          ></mat-datepicker-toggle>
+                          <mat-datepicker #execIdIssuePicker></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>OCCUPATION</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].occupation
+                            "
+                            name="occupation"
+                            formControlName="occupation"
+                            matInput
+                            placeholder="Occupation"
+                          />
+                        </mat-form-field>
+
+                        <div class="extra-info-trustees">
+                          <h1>STATUS AS A DIRECTOR</h1>
+                          <h4>(Please tick as appropriate)</h4>
+
+                          <div class="regName">
+                            <div class="checkboxes">
+                              <div class="left-side-check">
+                                <mat-checkbox
+                                  *ngFor="let item of directorStatusList[count]"
+                                  [(ngModel)]="item.checked"
+                                  [checked]="item.checked"
+                                  (change)="
+                                    addDirectorStatus(count, item, $event)
+                                  "
+                                  name="{{ item.formName }}"
+                                  formControlName="{{ item.formName }}"
+                                  class="activity_type_checkbox"
+                                  >{{ item.name }}</mat-checkbox
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>JOB TITLE</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].jobTitle
+                            "
+                            name="jobTitle"
+                            formControlName="jobTitle"
+                            matInput
+                            placeholder="Job Title"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>RESIDENTIAL ADDRESS</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].residentialAddress
+                            "
+                            name="residentialAddress"
+                            formControlName="residentialAddress"
+                            matInput
+                            placeholder="Residential Address"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          style="width: 100%"
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>NEAREST LANDMARK</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].nearestLandmark
+                            "
+                            name="nearestLandmark"
+                            formControlName="nearestLandmark"
+                            matInput
+                            placeholder="Nearest Landmark"
+                          />
+                        </mat-form-field>
+                      </div>
+
+                      <div class="right-side">
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>FIRST NAME</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].firstname
+                            "
+                            name="firstname"
+                            formControlName="firstname"
+                            matInput
+                            placeholder="First Name"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>MOTHER'S MAIDEN NAME</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].mothersMaidenName
+                            "
+                            name="mothersMaidenName"
+                            formControlName="mothersMaidenName"
+                            matInput
+                            placeholder="Mother's Maiden Name"
+                          />
+                        </mat-form-field>
+
+                        <div class="regName">
+                          <div class="inner-regName">
+                            <mat-label
+                              style="
+                                font-size: 14px;
+                                font-family: 'BentonSans Regular';
+                              "
+                              >GENDER</mat-label
+                            >
+                          </div>
+
+                          <div class="checkboxes">
+                            <mat-radio-group
+                              [(ngModel)]="
+                                managementInfo.directors[count].gender
+                              "
+                              aria-labelledby="example-radio-group-label"
+                              formControlName="gender"
+                            >
+                              <mat-radio-button
+                                class="example-radio-button"
+                                *ngFor="let gender of genderList"
+                                [value]="gender"
+                              >
+                                {{ gender }}
+                              </mat-radio-button>
+                            </mat-radio-group>
+                          </div>
+                        </div>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>RESIDENT PERMIT NO.</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].residentialPermit
+                            "
+                            name="residentialPermit"
+                            formControlName="residentialPermit"
+                            matInput
+                            placeholder="Resident Permit No."
+                          />
+                        </mat-form-field>
+
+                        <h4
+                          style="
+                            color: grey;
+                            opacity: 0.5;
+                            margin-top: -10px;
+                            margin-bottom: 20px;
+                          "
+                        >
+                          * Required only for non-Ghanaians
+                        </h4>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>ID NUMBER</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].idNumber
+                            "
+                            name="idNumber"
+                            formControlName="idNumber"
+                            matInput
+                            placeholder="ID Number"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                          <mat-label>ID EXPIRY DATE</mat-label>
+
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].idExpiryDate
+                            "
+                            name="idExpiryDate"
+                            formControlName="idExpiryDate"
+                            matInput
+                            [matDatepicker]="execIdExpiryDatePicker"
+                            placeholder="ID Expiry Date"
+                          />
+                          <mat-datepicker-toggle
+                            matSuffix
+                            [for]="execIdExpiryDatePicker"
+                          ></mat-datepicker-toggle>
+                          <mat-datepicker
+                            #execIdExpiryDatePicker
+                          ></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>CITY/TOWN</mat-label>
+                          <input
+                            [(ngModel)]="managementInfo.directors[count].city"
+                            name="city"
+                            formControlName="city"
+                            matInput
+                            placeholder="City/Town"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>PRIMARY PHONE NUMBER</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count].primaryPhoneNumber
+                            "
+                            name="primaryPhoneNumber"
+                            formControlName="primaryPhoneNumber"
+                            type="tel"
+                            matInput
+                            placeholder="Phone Number"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>SECONDARY PHONE NUMBER</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.directors[count]
+                                .secondaryPhoneNumber
+                            "
+                            name="secondaryPhoneNumber"
+                            formControlName="secondaryPhoneNumber"
+                            type="tel"
+                            matInput
+                            placeholder="Other Number"
+                          />
+                        </mat-form-field>
+
+                        <h4
+                          style="
+                            color: grey;
+                            opacity: 0.5;
+                            margin-top: -10px;
+                            margin-bottom: 20px;
+                          "
+                        >
+                          * Optional
+                        </h4>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label
+                            >METROPOLITAN, MUNICIPAL DISTRICT ASSEMBLY AREA
+                            (MMDA)</mat-label
+                          >
+                          <input
+                            [(ngModel)]="managementInfo.directors[count].mmda"
+                            name="mmda"
+                            formControlName="mmda"
+                            matInput
+                            placeholder="MMDA"
+                          />
+                        </mat-form-field>
+
+                        <h4
+                          style="
+                            color: grey;
+                            opacity: 0.5;
+                            margin-top: -10px;
+                            margin-bottom: 20px;
+                          "
+                        >
+                          * Optional
+                        </h4>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>REGION</mat-label>
+                          <input
+                            [(ngModel)]="managementInfo.directors[count].region"
+                            name="region"
+                            formControlName="region"
+                            matInput
+                            placeholder="Region"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>EMAIL ADDRESS</mat-label>
+                          <input
+                            [(ngModel)]="managementInfo.directors[count].email"
+                            name="email"
+                            formControlName="email"
+                            matInput
+                            placeholder="Email"
+                          />
+                        </mat-form-field>
+                      </div>
+                    </form>
+                  </section>
+
+                  <section class="management-info-bottom">
+                    <button
+                      (click)="addDirector()"
+                      mat-flat-button
+                      aria-label="Button to remove a management info"
+                    >
+                      <section class="remove-management-button">
+                        <img
+                          style="width: 20px; height: 20px; margin-right: 10px"
+                          [src]="assetUrl + 'assets/svgs/bcc_add_icn.svg'"
+                          alt=""
+                        />
+                        <div class="add-button">
+                          Add New Director / Executive / Trustee
+                        </div>
+                      </section>
+                    </button>
+                  </section>
+                </mat-expansion-panel>
+              </ng-container>
+
+              <mat-expansion-panel
+                style="width: 100%"
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title> SHAREHOLDER'S INFORMATION </mat-panel-title>
+
+                  <mat-panel-description>
+                    <span></span>
+                    <span class="edit-expansion-header">EDIT</span>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <section
+                  *ngFor="
+                    let item of additionalDetailsFormGroups;
+                    let count = index
+                  "
+                >
+                  <section class="managment-header-info">
+                    <span>{{
+                      managementInfo.additionalDetails[count].fullname || ""
+                    }}</span>
+                    <span>
+                      <!-- <button mat-icon-button color="primary" aria-label="Button to remove a management info">
+                        <img class="icon-borders" [src]="assetUrl+'/assets/svgs/icn_cancel.svg'" alt="" srcset="">
+                      </button> -->
+                      <button
+                        (click)="removeAdditionalDetails(count)"
+                        mat-flat-button
+                        aria-label="Button to remove a management info"
+                      >
+                        <div class="remove-button">
+                          REMOVE ADDITIONAL DETAIL
+                        </div>
+                      </button>
+                    </span>
+                  </section>
+
+                  <form
+                    class="formOne"
+                    [formGroup]="item"
+                    style="display: flex; flex-direction: column"
+                  >
+                    <div
+                      class="upper-side"
+                    >
+                      <h4
+                        class="upper-side-title"
+                        style="font-family: 'BentonSans Regular'"
+                      >
+                        NAME OF AFFILIATED COMPANY / BODY
+                      </h4>
+
+                      <mat-form-field
+                        class="example-full-width"
+                        appearance="outline"
+                      >
+                        <mat-label>COMPANY / BODY</mat-label>
+                        <input
+                          [(ngModel)]="
+                            managementInfo.additionalDetails[count]
+                              .nameOfAffiliatedCompany
+                          "
+                          name="nameOfAffiliatedCompany"
+                          formControlName="nameOfAffiliatedCompany"
+                          matInput
+                          placeholder="Company / Body"
+                        />
+                      </mat-form-field>
+                    </div>
+
+                    <h4
+                      class="upper-side-title"
+                      style="font-family: 'BentonSans Regular'"
+                    >
+                      PRINCIPAL SHAREHOLDERS (SHAREHOLDING OF 10% AND ABOVE)
+                    </h4>
+
+                    <div class="lower-side">
+                      <div class="left-lower-side">
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>FULLNAME OF SHAREHOLDER</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.additionalDetails[count].fullname
+                            "
+                            name="fullname"
+                            formControlName="fullname"
+                            matInput
+                            placeholder="Full Name"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>ADDRESS</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.additionalDetails[count].address
+                            "
+                            name="address"
+                            formControlName="address"
+                            matInput
+                            placeholder="Address"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>STATUS</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.additionalDetails[count].status
+                            "
+                            name="status"
+                            formControlName="status"
+                            matInput
+                            placeholder="Status"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>MOBILE NUMBER</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.additionalDetails[count]
+                                .mobileNumber
+                            "
+                            name="mobileNumber"
+                            formControlName="mobileNumber"
+                            matInput
+                            placeholder="Mobile Number"
+                          />
+                        </mat-form-field>
+
+                        <section
+                          class="select_with_search_dropdown example-full-width inputs_margin"
+                        >
+                          <app-search-dropdown
+                            [items]="COUNTRIES"
+                            [selected]="
+                              managementInfo.additionalDetails[count]
+                                .nationality
+                            "
+                            [size]="'small'"
+                            [label]="'name'"
+                            [uid]="'name'"
+                            (afterChange)="
+                              getAddtionalDetailsCountry(count, $event)
+                            "
+                            [placeholder]="'Nationality (Shareholders Country)'"
+                          >
+                          </app-search-dropdown>
+                        </section>
+                      </div>
+
+                      <div class="right-lower-side">
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>PERCENTAGE HOLDING</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.additionalDetails[count]
+                                .percentageHolding
+                            "
+                            name="percentageHolding"
+                            formControlName="percentageHolding"
+                            matInput
+                            placeholder="Percentage Holding"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label>EMAIL ADDRESS</mat-label>
+                          <input
+                            [(ngModel)]="
+                              managementInfo.additionalDetails[count].email
+                            "
+                            name="email"
+                            formControlName="email"
+                            matInput
+                            placeholder="Email"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label
+                            >REGISTRATION CERTIFICATE (IF A CORPORATE
+                            SHAREHOLDER)</mat-label
+                          >
+                          <input
+                            [(ngModel)]="
+                              managementInfo.additionalDetails[count]
+                                .registrationCertificate
+                            "
+                            name="registrationCertificate"
+                            formControlName="registrationCertificate"
+                            matInput
+                            placeholder="Certificate"
+                          />
+                        </mat-form-field>
+
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                        >
+                          <mat-label
+                            >NAME(S) OF BENEFICIARY OWNER(S) (IF ANY)</mat-label
+                          >
+                          <input
+                            [(ngModel)]="
+                              managementInfo.additionalDetails[count]
+                                .beneficiaries
+                            "
+                            name="beneficiaries"
+                            formControlName="beneficiaries"
+                            matInput
+                            placeholder="Beneficiary Owner(s)"
+                          />
+                        </mat-form-field>
+
+                        <section
+                          class="select_with_search_dropdown example-full-width inputs_margin"
+                        >
+                          <app-search-dropdown
+                            [items]="COUNTRIES"
+                            [selected]="
+                              managementInfo.additionalDetails[count]
+                                .countryOfIncoporation
+                            "
+                            [size]="'small'"
+                            [label]="'name'"
+                            [uid]="'name'"
+                            (afterChange)="
+                              getAddtionalDetailsCountryOfIncorporation(
+                                count,
+                                $event
+                              )
+                            "
+                            [placeholder]="'COUNTRY OF INCORPORATION'"
+                          >
+                          </app-search-dropdown>
+                        </section>
+
+                      </div>
+                    </div>
+                  </form>
+                </section>
+
+                <section class="management-info-bottom">
+                  <button
+                    (click)="addAdditionalDetails()"
+                    mat-flat-button
+                    aria-label="Button to remove a management info"
+                  >
+                    <section class="remove-management-button">
+                      <img
+                        style="width: 20px; height: 20px; margin-right: 10px"
+                        [src]="assetUrl + 'assets/svgs/bcc_add_icn.svg'"
+                        alt=""
+                      />
+                      <div class="add-button">Add New Additional Details</div>
+                    </section>
+                  </button>
+                </section>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </section>
+        </div>
+      </section>
+    </section>
+  </section>
+
+  <ng-container *ngSwitchCase="PROGRESS.LOADING">
+    <section class="loader-screen">
+      <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+    </section>
+  </ng-container>
+</ng-container>

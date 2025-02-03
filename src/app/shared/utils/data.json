@@ -1,0 +1,110 @@
+{
+    "hostHeaderInfo": {
+        "ipAddress": "127.0.0.1",
+        "requestId": "3",
+        "sourceChannelId": "WEB"
+    },
+    "businessInfo": {
+        "affiliatedCompany": "",
+        "annualTurnover": "1000",
+        "country": "",
+        "entityType": "Sole Proprietor Account",
+        "physicalAddress": "test",
+        "principalShareholders": "",
+        "regDate": "2023-02-20T00:00:00.000Z",
+        "registeredName": "test",
+        "registrationNo": "C0004445287",
+        "residency": "Resident",
+        "sector": "ACCOUNTING, BOOKKEEPING, AUDITING; TAX CONSULTANCY",
+        "telephone": "0246692602",
+        "tin": "P0010780092",
+        "tradeName": "test",
+        "other": "",
+        "additionalDetails": "P0010780092",
+        "keyContPerson": 246692602,
+        "preferredBranch": ""
+    },
+    "applicationStage": 3,
+    "docInfo": {
+        "businessAddress": [],
+        "license": [],
+        "permit": [],
+        "registration": [],
+        "relatedParties": [],
+        "resolution": [],
+        "additionalDetails": [],
+        "executiveDetails": [],
+        "signatoryDetails": [],
+        "principalDetails": [],
+        "passportPicture": [],
+        "signatureCard": [],
+        "mandatorySignature": [],
+        "others": [],
+        "fatca1": [],
+        "fatca2": [],
+        "fatca3": []
+    },
+    "accountInfo": {
+        "businessType": "Technology",
+        "fundSource": "Proceeds from Sales, Shareholders Funds,  Profit from Business Operations",
+        "reason": "Makes payment to suppliers and vendors,Collection Solutions,Salary Payments,Business authenticity validation",
+        "debitCard": true,
+        "freqPref": "Weekly",
+        "mode": [
+            {
+                "contactMode": "SMS"
+            },
+            {
+                "contactMode": "Email"
+            }
+        ],
+        "rm": "Agbeko, Peter P ",
+        "emailAlert": true,
+        "smsAlert": true,
+        "email": "noelnuel44@gmail.com",
+        "mobileNumber": "0246692602",
+        "preferredBranch": "ACCRA CASH CENTRE",
+        "keyContPerson": 246692602,
+        "activityType": "CASH_DEPOSITS, DEBIT_ORDERS, ELECTRONIC_PAYMENTS, DIGITAL_PAYMENTS, CHEQUE_PAYMENTS",
+        "service": "EOL, MOMO_LINKAGE, DEBIT_CARD",
+        "alertSelection": "noelnuel44@gmail.com, 0246692602"
+    },
+    "newManagementInfoList": {
+        "affiliatedCompany": "stanbic",
+        "details": "P0010780092",
+        "executives": "P0010780092",
+        "fatca": [],
+        "citizenship": "",
+        "kycProfile": "P0010780092",
+        "pep": "N",
+        "principal": "Emmauel",
+        "shareholders": "P0010780092",
+        "signatory": "Emmanuel"
+    },
+    "channelsInfo": {
+        "autorisers": [
+            {
+                "name": "adsasdasd",
+                "signatoryType": "Type A"
+            }
+        ],
+        "bankUserData": [
+            {
+                "fullName": "Emmanuel",
+                "contact": "0246692602",
+                "email": "noelnuel44@gmail.com"
+            },
+            {
+                "fullName": "eMMANUEL",
+                "contact": "0246692602",
+                "email": "noelnuel44@gmail.com"
+            }
+        ],
+        "capturers": "Emmnel,Botwe",
+        "channel": "VIEWING BALANCES AND PRINTING STATEMENTS,MAKING INTER ACCOUNT TRANSFER,MAKING THIRD PARTY PAYMENTS (PAYMENTS TO OTHER ACCOUNTS)",
+        "comments": "0246692602",
+        "functionality": "BUSINESS ONLINE,ENTERPRISE ONLINE,POS,DEBIT CARD,MOMO LINKAGE"
+    },
+    "final": false,
+    "verifiedEmail": ""
+}

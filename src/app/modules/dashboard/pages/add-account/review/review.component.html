@@ -1,0 +1,98 @@
+<ng-container [ngSwitch]="PAGE_STATE">
+  <section *ngSwitchCase="PROGRESS.DONE" class="main-content-body">
+    <section class="account-details-forms-container">
+      <section class="entire-form1">
+        <div class="inner-form1">
+          <h2 class="summary-title">Summary</h2>
+          <h3>Review your application before you submit</h3>
+
+          <div class="wrapper-dashed">
+            <mat-accordion>
+              <mat-expansion-panel
+                style="width: 80%; margin-left: 20px"
+                (opened)="panelOpenState = true; navigateTo(1)"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  Business Details
+                  <!-- <div class="edit-btn">
+                    <h2>Edit</h2>
+                  </div> -->
+                </mat-expansion-panel-header>
+              </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-accordion>
+              <mat-expansion-panel
+                style="width: 80%; margin-left: 20px"
+                (opened)="panelOpenState = true; navigateTo(2)"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  Account Details
+
+                  <!-- <div class="edit-btn">
+                    <h2>Edit</h2>
+                  </div> -->
+                </mat-expansion-panel-header>
+              </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-accordion>
+              <mat-expansion-panel
+                style="width: 80%; margin-left: 20px"
+                (opened)="panelOpenState = true; navigateTo(3)"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  Management Details
+
+                  <!-- <div class="edit-btn">
+                    <h2>Edit</h2>
+                  </div> -->
+                </mat-expansion-panel-header>
+              </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-accordion>
+              <mat-expansion-panel
+                style="width: 80%; margin-left: 20px"
+                (opened)="panelOpenState = true; navigateTo(4)"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  Digital Channels
+                  <!-- <div class="edit-btn">
+                    <h2>Edit</h2>
+                  </div> -->
+                </mat-expansion-panel-header>
+              </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-accordion>
+              <mat-expansion-panel
+                style="width: 80%; margin-left: 20px"
+                (opened)="panelOpenState = true; navigateTo(5)"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  Documents Upload
+
+                  <!-- <div class="edit-btn">
+                    <h2>Edit</h2>
+                  </div> -->
+                </mat-expansion-panel-header>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </div>
+      </section>
+    </section>
+  </section>
+
+  <ng-container *ngSwitchCase="PROGRESS.LOADING">
+    <section class="loader-screen">
+      <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+    </section>
+  </ng-container>
+</ng-container>

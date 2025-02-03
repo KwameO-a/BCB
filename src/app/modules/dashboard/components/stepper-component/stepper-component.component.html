@@ -1,0 +1,35 @@
+<section #stepper class="main-stepper-container">
+  <section class="stepper-progress-container">
+    <ng-container *ngFor="let step of steps; let i = index">
+      <section
+        [ngClass]="selectedIndex === i ? 'activated-step' : 'not-active'"
+        (click)="setStepperPosition(i)"
+        class="stepper-progress-circle"
+      >
+        <div
+          [ngClass]="selectedIndex >= i ? 'circle-tab-active' : 'circle-tab'"
+        >
+          <span
+            [ngClass]="
+              selectedIndex <= i
+                ? 'icon-tab-complete-active'
+                : 'icon-tab-complete'
+            "
+            >{{ i }}</span
+          >
+          <img
+            [src]="assetUrl + '/assets/svgs/check-mark.svg'"
+            class="checkmark"
+            [ngClass]="
+              selectedIndex > i
+                ? 'icon-tab-complete-active'
+                : 'icon-tab-complete'
+            "
+          />
+        </div>
+        <span></span>
+      </section>
+      <div *ngIf="i !== steps.length - 1" class="stepper-divider"></div>
+    </ng-container>
+  </section>
+</section>

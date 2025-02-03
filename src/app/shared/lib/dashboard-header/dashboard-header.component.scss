@@ -1,0 +1,118 @@
+.dashboard-navigation {
+  color: white;
+
+  height: var(--dashboard-header-height);
+  border-bottom: 1px solid #00000015;
+  // background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), #F5F6F7;
+  // border-bottom: 0.5px solid rgba(26, 49, 77, 0.11);;
+
+  background-color: #0033a1;
+  color: #ffffff;
+  font-family: "BentonSans Medium", Arial;
+}
+
+a.branding {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+}
+
+.logo-text {
+  color: #0033aa;
+  font-weight: 800;
+  font-size: 17px;
+  margin-left: 3px;
+  margin-top: 5px;
+}
+
+.top-header {
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(93.67deg, #0064fc 1.23%, #0033aa 58.64%);
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.header-text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: right;
+  color: #0a2240;
+}
+
+.header-row {
+  height: 100%;
+}
+
+a.highlight img {
+  filter: invert(6%) sepia(97%) saturate(7126%) hue-rotate(327deg)
+    brightness(97%) contrast(98%);
+  color: red;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.dashboard-content {
+  // background-color: orange;
+  flex: 1 1 auto;
+}
+
+.icon-borders {
+  width: 30px;
+  height: 30px;
+}
+
+button {
+  background-color: transparent;
+}
+
+.nav-links {
+  margin-right: 40px;
+}
+
+.save-and-exit {
+  height: 100%;
+}
+
+.save-button-design {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info,
+.reload {
+  margin: 0px 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .logo-text {
+    display: none;
+  }
+
+  .main-header {
+    padding: 20px 15px;
+  }
+}

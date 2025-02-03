@@ -1,0 +1,21 @@
+<section   class="category-card-container">
+
+  <section class="category-card-top">
+    <img class="logo" [src]="link.icon" alt="" srcset="">
+    <span class="category-card-title">{{link.title}}</span>
+  </section>
+  
+  <section class="category-card-content">
+    <span class="category-content-text">{{link.description}}</span>
+  </section>
+
+  <span class="card-footer">
+    <button (click)="updateFavorite()" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+      <img [ngClass]="{'favorite':link.liked}" class="icon-borders" [src]="assetUrl+'/assets/svgs/favorites-rounded.svg'" alt="" srcset="">
+    </button>
+    <a  [href]="link.url" target="_blank" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+      <img class="icon-borders" [src]="assetUrl+'/assets/svgs/icn_link_out.svg'" alt="" srcset="">
+    </a>
+  </span>
+</section>
+

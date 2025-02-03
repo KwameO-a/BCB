@@ -1,0 +1,69 @@
+<section
+  [cdkContextMenuTriggerFor]="context_menu"
+  class="category-card-container"
+  [routerLink]="'/add-account/' + item.id"
+>
+  <section class="category-card-top" >
+    <div [style.background]="item.color || '#329B7F'" class="icon-container">
+      <img class="logo" [src]="assetUrl + item.icon" alt="" srcset="" />
+    </div>
+    <span class="category-card-title">{{ item.name }}</span>
+  </section>
+
+  <div class="info" onclick="!active">
+    <img [src]="assetUrl + '/assets/svgs/icn_info_circle.svg'" alt="" />
+  </div>
+
+  <section class="category-card-content" [ngClass]="{ active: active }">
+    <span class="category-content-text">{{ item.description }}</span>
+  </section>
+
+  <!-- <span class="card-footer">
+    <a
+      [href]="item.id"
+      target="_blank"
+      (click)="$event.stopPropagation()"
+      mat-icon-button
+      color="primary"
+      aria-label="Example icon button with a home icon"
+    >
+      <img
+        class="icon-borders"
+        [src]="assetUrl + '/assets/svgs/icn_link_out.svg'"
+        alt=""
+        srcset=""
+      />
+    </a>
+  </span> -->
+</section>
+
+<ng-template #context_menu>
+  <div class="card-menu" cdkMenu>
+    <button (click)="copyLink()" class="card-menu-item" cdkMenuItem>
+      <span>Copy Link</span>
+      <img
+        class="icon-borders"
+        style="width: 20px; height: 20px"
+        [src]="assetUrl + '/assets/svgs/fluent_document_copy.svg'"
+        alt=""
+        srcset=""
+      />
+    </button>
+
+    <!-- <button class="card-menu-item" cdkMenuItem>
+      <span>Add to Favorite</span>
+      <img [ngClass]="{'favorite':item.liked}" class="icon-borders" style="width:20px; height:20px" [src]="assetUrl+'/assets/svgs/icn_heart_outline_no_outline.svg'" alt="" srcset="">
+
+    </button> -->
+    <button (click)="openLink()" class="card-menu-item" cdkMenuItem>
+      <span>Open Link</span>
+      <img
+        class="icon-borders"
+        style="width: 20px; height: 20px"
+        [src]="assetUrl + '/assets/svgs/icn_link_out_no_outline.svg'"
+        alt=""
+        srcset=""
+      />
+    </button>
+  </div>
+</ng-template>

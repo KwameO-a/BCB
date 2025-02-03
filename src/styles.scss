@@ -1,0 +1,194 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'BentonSans Thin';
+    src: url("assets/fonts/BentonSans/BentonSans-Thin.otf") format("opentype");
+  }
+  
+  @font-face {
+  font-family: 'BentonSans Light';
+  src: url("assets/fonts/BentonSans/BentonSans-Light.otf") format("opentype");
+  }
+  
+  @font-face {
+  font-family: 'BentonSans Book';
+  src: url("assets/fonts/BentonSans/BentonSans-Book.otf") format("opentype");
+  }
+  
+  @font-face {
+  font-family: 'BentonSans Regular';
+  src: url("assets/fonts/BentonSans/BentonSans-Regular.otf") format("opentype");
+  }
+  
+  @font-face {
+  font-family: 'BentonSans Medium';
+  src: url("assets/fonts/BentonSans/BentonSans-Medium.otf") format("opentype");
+  }
+  
+  
+  @font-face {
+  font-family: "BentonSans Thin";
+  src: local(BentonSans Bold),
+  url("assets/fonts/BentonSans/BentonSans-Bold.otf") format("opentype");
+  font-weight: 700;
+  } 
+  
+  
+  @font-face {
+    font-family: "Inter Thin";
+    src: local("Inter Thin"),
+    url("assets/fonts/Inter/Inter-Thin.ttf") format("truetype");
+    } 
+  
+  @font-face {
+    font-family: "Inter";
+    src: local("Inter Regular"),
+    url("assets/fonts/Inter/Inter-Regular.ttf") format("truetype");
+    }
+  
+  @font-face {
+    font-family: "Inter Light";
+    src: local("Inter Light"),
+    url("assets/fonts/Inter/Inter-Light.ttf") format("truetype");
+    }
+  
+  @font-face {
+    font-family: "Inter Bold";
+    src: local("Inter Bold"),
+    url("assets/fonts/Inter/Inter-Bold.ttf") format("truetype");
+    }
+  
+  @font-face {
+    font-family: "Inter Medium";
+    src: local("Inter Medium"),
+    url("assets/fonts/Inter/Inter-Medium.ttf") format("truetype");
+    }
+  
+  *{
+  font-family: "BentonSans Regular";
+  box-sizing: border-box;
+  
+  }
+  html, body { height: 100%; }
+  body { 
+  margin: 0; 
+  font-family: "BentonSans Regular", Roboto, "Helvetica Neue", sans-serif;  
+  }
+  
+  
+  /* Colors */
+  * {
+  --pumpkin-orange: #ff8100;
+  --pumpkin-orange-60: rgba(255, 129, 0, 0.6);
+  --black-10: rgba(0, 0, 0, 0.1);
+  --black-30: rgba(0, 0, 0, 0.3);
+  --black-50: rgba(0, 0, 0, 0.5);
+  
+  --charcoal-grey: #4a4a4a;
+  --white-two-59: rgba(236, 236, 236, 0.59);
+  --warm-grey: #96908a;
+  --dark-grey-blue: #2a3150;
+  
+  --pumpkin-orange-15: rgba(255, 129, 0, 0.15);
+  
+  --white-two-20: rgba(236, 236, 236, 0.2);
+  --white-two-50: rgba(236, 236, 236, 0.5);
+  --brownish-grey: #6a6665;
+  --pink-red: #ff005e;
+  --white: white;
+  
+  --dashboard-main-content-width : 90px;
+  --dashboard-side-nav-width : 250px;
+  --dashboard-content-padding : 50px;
+  
+  --dashboard-header-height: 70px;
+    --dashboard-sub-header-height: 60px;
+  
+  
+  box-sizing: border-box;
+  }
+  
+  * > * {
+    box-sizing: border-box;
+  }
+  
+  .spacer{
+  flex : 1 1 auto;
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: 0px !important;
+  }
+  
+  
+  .navigation-link{
+  cursor : pointer;
+  }
+  
+  .nav-horizontal-divider{
+  width: 100%;
+  height:1px;
+  background-color: #E3E6EA;
+  }
+  
+  .input-disabled{
+  // background-color: #F4F5F7;
+  }
+  
+  /* Spinner Color Change */
+  .mat-progress-spinner circle,
+  .mat-spinner circle {
+  stroke: var(--pumpkin-orange) !important;
+  }
+  
+  /* Mat progress bar */
+  mat-progress-bar .mat-progress-bar-fill::after {
+  background-color: #ff8100;
+  }
+  
+  // .visible-scrollbar,
+  // .invisible-scrollbar,
+  // .mostly-customized-scrollbar {
+  //   display: block;
+  //   width: 10em;
+  //   overflow: auto;
+  //   height: 2em;
+  // }
+  
+  // *::-webkit-scrollbar {
+  //   display: none;
+  // }
+  
+  // .dashboard-content::-webkit-scrollbar {
+  //   display: none;
+  // }
+  
+  .loader-screen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 100%;
+  height: 100%;
+  }
+  
+  span,p{
+  // font-family:'BentonSans Light's
+  }
+  
+  
+.mat-snack-bar-container.success-toast {
+  background: #27b676;
+  color: #ffffff;
+  font-family: "BentonSans Light", Arial !important;
+  font-size: 20px !important;
+}
+
+.mat-snack-bar-container.error-toast {
+  background: #c31a1a;
+  color: #ffffff;
+  font-family: "BentonSans Light", Arial !important;
+  font-size: 20px !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

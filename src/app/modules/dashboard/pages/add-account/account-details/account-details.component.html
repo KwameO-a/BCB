@@ -1,0 +1,339 @@
+<ng-container [ngSwitch]="PAGE_STATE">
+  <section *ngSwitchCase="PROGRESS.DONE" class="main-content-body">
+    <!-- <section>{{accountInfoForm.value | json}}</section> -->
+    <!-- <section>{{accountInfo | json}}</section> -->
+    <section class="account-details-forms-container">
+      <section class="entire-form1">
+        <div class="inner-form1">
+          <form [formGroup]="accountInfoForm">
+            <div class="entire-main-form-side">
+              <div class="left-side">
+                <mat-form-field appearance="outline">
+                  <mat-label>REASON FOR OPENING THIS ACCOUNT</mat-label>
+                  <mat-select
+                    name="reason"
+                    formControlName="reason"
+                    [(ngModel)]="accountInfo.reason"
+                    [value]="accountInfo.reason"
+                    multiple
+                  >
+                    <mat-option
+                      *ngFor="let mode of REASONS_FOR_ACCOUNT"
+                      [value]="mode.name"
+                    >
+                      {{ mode.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <div class="regName">
+                  <div class="inner-regName">
+                    <mat-label>ACTIVITY ON ACCOUNT</mat-label>
+                  </div>
+
+                  <div class="checkboxes">
+                    <div class="left-side-check">
+                      <mat-checkbox
+                        name="{{ '' + item.id }}"
+                        formControlName="{{ '' + item.id }}"
+                        *ngFor="let item of accountActivities"
+                        [(ngModel)]="item.checked"
+                        [checked]="item.checked"
+                        (change)="addActivity(item, $event)"
+                        class="activity_type_checkbox"
+                        >{{ item.name }}</mat-checkbox
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Type of Business Conducted</mat-label>
+                  <input
+                    name="businessType"
+                    formControlName="businessType"
+                    [(ngModel)]="accountInfo.businessType"
+                    [value]="accountInfo.businessType"
+                    matInput
+                    placeholder="TYPE OF BUSINESS CONDUCTED"
+                  />
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>KEY CONTACT PERSON'S MOBILE NUMBER</mat-label>
+                  <input
+                    name="keyContactPerson"
+                    formControlName="keyContactPerson"
+                    [(ngModel)]="accountInfo.keyContPerson"
+                    [value]="accountInfo.keyContPerson"
+                    matInput
+                    placeholder="KEY CONTACT PERSON'S MOBILE NUMBER"
+                  />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Source of Funds</mat-label>
+                  <mat-select
+                    name="fundSource"
+                    formControlName="fundSource"
+                    [(ngModel)]="accountInfo.fundSource"
+                    [value]="accountInfo.fundSource"
+                    [ngClass]="
+                      !accountInfo.fundSource.includes('Other')
+                        ? 'source-active'
+                        : 'source-disabled'
+                    "
+                    multiple
+                  >
+                    <mat-option
+                      [value]="fund"
+                      *ngFor="let fund of SOURCE_OF_FUNDS"
+                    >
+                      {{ fund }}
+                    </mat-option>
+                  </mat-select>
+                  <input
+                    name="fundSource"
+                    formControlName="fundSource"
+                    [(ngModel)]="accountInfo.fundSource"
+                    [value]="accountInfo.fundSource"
+                    [ngClass]="
+                      accountInfo.fundSource.includes('Other')
+                        ? 'source-active'
+                        : 'source-disabled'
+                    "
+                    matInput
+                    placeholder=""
+                  />
+                </mat-form-field>
+
+                <section class="select_with_search_dropdown inputs_margin">
+                  <app-search-dropdown
+                    [items]="availableBranches"
+                    [selected]="accountInfo.preferredBranch"
+                    [size]="'small'"
+                    [label]="'branch'"
+                    [uid]="'branch'"
+                    (afterChange)="prefferedBranchSelected($event)"
+                    [placeholder]="'SELECT A PREFERRED BRANCH'"
+                  >
+                  </app-search-dropdown>
+                </section>
+
+                <div class="regName">
+                  <div class="inner-regName">
+                    <mat-label>ALERT OPTIONS</mat-label>
+                  </div>
+
+                  <div class="checkboxes">
+                    <div class="left-side-check">
+                      <mat-checkbox
+                        name="EMAIL_ALERT"
+                        formControlName="EMAIL_ALERT"
+                        [(ngModel)]="accountInfo.emailAlert"
+                        [checked]="accountInfo.emailAlert"
+                        (change)="
+                          switchAlertCheckState('EMAIL', $event.checked)
+                        "
+                        class="example-margin"
+                      >
+                        EMAIL ALERTS</mat-checkbox
+                      >
+                    </div>
+
+                    <div class="right-side-check">
+                      <mat-checkbox
+                        name="SMS_ALERT"
+                        formControlName="SMS_ALERT"
+                        [(ngModel)]="accountInfo.smsAlert"
+                        [checked]="accountInfo.smsAlert"
+                        (change)="switchAlertCheckState('SMS', $event.checked)"
+                        class="example-margin"
+                      >
+                        SMS ALERTS</mat-checkbox
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="right-side">
+                <mat-form-field appearance="outline">
+                  <mat-label
+                    >How Often Would You Like To Be Contacted</mat-label
+                  >
+                  <mat-select
+                    name="freqPref"
+                    formControlName="freqPref"
+                    [(ngModel)]="accountInfo.freqPref"
+                    [value]="accountInfo.freqPref"
+                  >
+                    <mat-option
+                      [value]="frequency"
+                      *ngFor="let frequency of CONTACT_FREQUENCY"
+                    >
+                      {{ frequency }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>CONTACT MODE</mat-label>
+                  <mat-select
+                    name="mode"
+                    formControlName="mode"
+                    [(ngModel)]="accountInfo.mode"
+                    [value]="accountInfo.mode"
+                    multiple
+                  >
+                    <mat-option
+                      *ngFor="let mode of CONTACT_MODE"
+                      [value]="mode"
+                    >
+                      {{ mode }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>RELATIONSHIP MANAGER</mat-label>
+                  <mat-select
+                    name="rm"
+                    formControlName="rm"
+                    [(ngModel)]="accountInfo.rmNo"
+                    [value]="accountInfo.rmNo"
+                  >
+                    <mat-option
+                      (change)="rmChange(rm)"
+                      [value]="rm.staffId"
+                      *ngFor="let rm of RELATIONSHIP_MANAGERS"
+                    >
+                      {{ rm.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>BDC CODE</mat-label>
+                  <input
+                    name="bdcCode"
+                    formControlName="bdcCode"
+                    [(ngModel)]="accountInfo.bdcCode"
+                    [value]="accountInfo.bdcCode"
+                    matInput
+                    placeholder=""
+                  />
+                </mat-form-field>
+
+                <section class="account-info-type-detail">
+                  <section class="regName" style="margin-right: 20px">
+                    <div class="inner-regName">
+                      <mat-label>ACCOUNT TYPE</mat-label>
+                    </div>
+
+                    <div class="checkboxes">
+                      <div>
+                        <mat-checkbox
+                          *ngFor="
+                            let item of accountTypeActivities;
+                            let count = index
+                          "
+                          formControlName="{{ item.id }}"
+                          name="{{ item.id }}"
+                          [checked]="item.checked"
+                          [(ngModel)]="item.checked"
+                          (change)="addAccountType(item, $event)"
+                          class="example-margin"
+                          >{{ item.name }}</mat-checkbox
+                        >
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="regName">
+                    <div class="inner-regName">
+                      <mat-label>CURRENCY</mat-label>
+                    </div>
+
+                    <div class="checkboxes">
+                      <div class="left-side-check">
+                        <mat-checkbox
+                          [disabled]="true"
+                          [checked]="true"
+                          formControlName="CURRENCY"
+                          name="CURRENCY"
+                          >GHS</mat-checkbox
+                        >
+                      </div>
+                    </div>
+                  </section>
+                </section>
+
+                <section
+                  *ngIf="accountInfo.emailAlert"
+                  class="input_with_info"
+                  style="margin-top: 20px"
+                >
+                  <mat-form-field
+                    style="width: 600px; margin-bottom: 0px"
+                    class="example-full-width"
+                    appearance="outline"
+                  >
+                    <mat-label>EMAIL ADDRESS FOR ALERTS</mat-label>
+                    <input
+                      name="email"
+                      formControlName="email"
+                      [(ngModel)]="accountInfo.email"
+                      [value]="accountInfo.email"
+                      matInput
+                      placeholder="EMAIL ADDRESS FOR ALERTS"
+                    />
+                  </mat-form-field>
+                  <mat-icon
+                    class="information-icon"
+                    matTooltip="Verify email bank alert should be sent to"
+                    matTooltipPosition="left"
+                    >info</mat-icon
+                  >
+                </section>
+
+                <section
+                  *ngIf="accountInfo.smsAlert"
+                  class="input_with_info"
+                  style="margin-top: 20px"
+                >
+                  <mat-form-field
+                    style="width: 600px; margin-bottom: 0px"
+                    class="example-full-width"
+                    appearance="outline"
+                  >
+                    <mat-label>MOBILE NUMBER FOR ALERTS</mat-label>
+                    <input
+                      name="phone"
+                      formControlName="phone"
+                      [(ngModel)]="accountInfo.mobileNumber"
+                      [value]="accountInfo.mobileNumber"
+                      matInput
+                      placeholder="MOBILE NUMBER FOR ALERTS"
+                    />
+                  </mat-form-field>
+                  <mat-icon
+                    class="information-icon"
+                    matTooltip="Verify email bank alert should be sent to"
+                    matTooltipPosition="left"
+                    >info</mat-icon
+                  >
+                </section>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </section>
+  </section>
+
+  <ng-container *ngSwitchCase="PROGRESS.LOADING">
+    <section class="loader-screen">
+      <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+    </section>
+  </ng-container>
+</ng-container>

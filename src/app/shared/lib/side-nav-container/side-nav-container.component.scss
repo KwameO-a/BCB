@@ -1,0 +1,21 @@
+
+.dashboard-drawer{
+  width: 220px;
+  height: calc(100vh - 100px);
+
+  // background-color: red;
+  // border-right: 1px solid black;
+
+  border-right: 0.5px solid rgba(26, 49, 77, 0.11);
+}
+
+.dashboard-main-content{
+// background-color: red;
+}
+
+.mobile-screen{
+  display: block;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  z-index: 9999! important;
+}

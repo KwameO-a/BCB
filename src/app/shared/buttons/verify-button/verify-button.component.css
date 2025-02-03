@@ -1,0 +1,18 @@
+
+
+.verify-button {
+  margin: 20px 0;
+  padding: 14px 16px;
+  color: #ffffff;
+  border: none;
+  width: 191px;
+  height: 46px;
+  background: linear-gradient(93.67deg, #0064fc 1.23%, #0033aa 58.64%);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.005em;
+  font-family: "Inter";
+}

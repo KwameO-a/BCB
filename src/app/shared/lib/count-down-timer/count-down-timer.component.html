@@ -1,0 +1,10 @@
+<div class="timer" 
+[style.color]="textColor"
+[style.fontSize]="fontSize"
+>
+  <span *ngIf="daysToDday > 0" id="days"> {{daysToDday + "Day(s)"}} </span>
+  <span *ngIf="hoursToDday" id="hours"> {{hoursToDday + "Hrs"}} </span> 
+  <span id="minutes"> {{minutesToDday < 10 ? "0"+minutesToDday : minutesToDday}} </span>
+  :
+  <span id="seconds"> {{secondsToDday < 10 ? "0"+secondsToDday : secondsToDday}} </span>
+</div>

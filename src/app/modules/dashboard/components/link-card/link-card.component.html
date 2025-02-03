@@ -1,0 +1,40 @@
+<section (click)="openLink()"  [cdkContextMenuTriggerFor]="context_menu"  class="category-card-container">
+
+  <section class="category-card-top">
+    <img class="logo" [src]="link.icon" alt="" srcset="">
+    <span class="category-card-title">{{link.title}}</span>
+  </section>
+  
+  <section class="category-card-content">
+    <span class="category-content-text">{{link.description}}</span>
+  </section>
+
+  <span class="card-footer">
+    <!-- <button (click)="updateFavorite()" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+      <img [ngClass]="{'favorite':link.liked}" class="icon-borders" [src]="assetUrl+'/assets/svgs/favorites-rounded.svg'" alt="" srcset="">
+    </button> -->
+    <a  [href]="link.url" target="_blank" (click)="$event.stopPropagation()" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+      <img class="icon-borders" [src]="assetUrl+'/assets/svgs/icn_link_out.svg'" alt="" srcset="">
+    </a>
+  </span>
+</section>
+
+
+<ng-template #context_menu>
+  <div class="card-menu" cdkMenu>
+    <button (click)="copyLink()" class="card-menu-item" cdkMenuItem>
+      <span>Copy Link</span>
+      <img class="icon-borders" style="width:20px; height:20px" [src]="assetUrl+'/assets/svgs/fluent_document_copy.svg'" alt="" srcset="">
+    </button>
+    
+    <!-- <button class="card-menu-item" cdkMenuItem>
+      <span>Add to Favorite</span>
+      <img [ngClass]="{'favorite':link.liked}" class="icon-borders" style="width:20px; height:20px" [src]="assetUrl+'/assets/svgs/icn_heart_outline_no_outline.svg'" alt="" srcset="">
+    
+    </button> -->
+    <button  class="card-menu-item" cdkMenuItem>
+      <span>Open Link</span>
+      <img class="icon-borders" style="width:20px; height:20px" [src]="assetUrl+'/assets/svgs/icn_link_out_no_outline.svg'" alt="" srcset="">
+    </button>
+  </div>
+</ng-template>

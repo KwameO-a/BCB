@@ -1,0 +1,40 @@
+
+<app-dashboard-container>
+
+  <app-dashboard-header></app-dashboard-header>
+
+  <app-dashboard-content-container style="flex: 1 1 auto; height: calc(100vh - var(--dashboard-header-height));">
+
+    <!-- <app-side-nav-container
+    [isMobile]="toggleMobile"
+    [opened]="mobileState"
+    >
+    
+    <nav>
+
+
+    </nav>
+    </app-side-nav-container> -->
+
+    <app-main-content-container style="flex: 1 1 auto; height: calc(100vh - var(--dashboard-header-height))">
+
+      <section class="main-dash-content-container">
+       
+        <section class="main-dash-content" style="height: 100%; width: 100%; ">
+          <router-outlet></router-outlet>
+        </section>
+      </section>
+    </app-main-content-container>
+
+
+
+ </app-dashboard-content-container>
+
+    
+</app-dashboard-container>
+
+
+
+
+
+

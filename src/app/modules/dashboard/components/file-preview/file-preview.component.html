@@ -1,0 +1,61 @@
+<section
+  (click)="openLink()"
+  [cdkContextMenuTriggerFor]="context_menu"
+  class="category-card-container"
+>
+  <span class="card-footer">
+    <div class="heading">
+      <div class="category-content-text">{{ file.name }}</div>
+      <div *ngIf="file.file" class="category-content-text">
+        &nbsp;&nbsp;&nbsp;&nbsp;file type: {{ file.file.type }}
+      </div>
+    </div>
+  </span>
+  <a
+    class="remove_button"
+    [href]=""
+    target="_blank"
+    (click)="$event.stopPropagation(); deleteFile()"
+    mat-icon-button
+    color="primary"
+    aria-label="Example icon button with a home icon"
+  >
+    <img
+      class="icon-borders"
+      [src]="assetUrl + '/assets/svgs/icn_bin.svg'"
+      alt=""
+      srcset=""
+    />
+  </a>
+</section>
+
+<ng-template #context_menu>
+  <div class="card-menu" cdkMenu>
+    <button (click)="copyLink()" class="card-menu-item" cdkMenuItem>
+      <span>Copy Link</span>
+      <img
+        class="icon-borders"
+        style="width: 20px; height: 20px"
+        [src]="assetUrl + '/assets/svgs/fluent_document_copy.svg'"
+        alt=""
+        srcset=""
+      />
+    </button>
+
+    <!-- <button class="card-menu-item" cdkMenuItem>
+      <span>Add to Favorite</span>
+      <img [ngClass]="{'favorite':link.liked}" class="icon-borders" style="width:20px; height:20px" [src]="assetUrl+'/assets/svgs/icn_heart_outline_no_outline.svg'" alt="" srcset="">
+
+    </button> -->
+    <button class="card-menu-item" cdkMenuItem>
+      <span>Open Link</span>
+      <img
+        class="icon-borders"
+        style="width: 20px; height: 20px"
+        [src]="assetUrl + '/assets/svgs/icn_link_out_no_outline.svg'"
+        alt=""
+        srcset=""
+      />
+    </button>
+  </div>
+</ng-template>

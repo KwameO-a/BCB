@@ -1,0 +1,40 @@
+<app-dashboard-container>
+  <app-dashboard-header [toggleSave]="false"></app-dashboard-header>
+
+  <app-dashboard-content-container
+    style="flex: 1 1 auto; height: calc(100vh - var(--dashboard-header-height))"
+  >
+    <app-main-content-container class="main-content-container">
+      <div class="onboarding-page">
+        <div class="container w-container">
+          <div
+            class="ads-banner"
+            [style.background-image]="
+              'url(' +
+              assetUrl +
+              '/assets/svgs/progresive-6.svg), linear-gradient(94deg, #0064fc, #03a)'
+            "
+          >
+            <div class="text-block">
+              Let’s get started opening your new account
+            </div>
+          </div>
+          <img
+            [src]="assetUrl + '/assets/svgs/open_account_starter.svg'"
+            loading="lazy"
+            alt=""
+            class="starter-image"
+          />
+          <div class="buttons">
+            <a routerLink="/login" class="start-new-application w-button">
+              Start New Application
+            </a>
+            <a routerLink="/login" class="button-continue w-button">
+              Continue Saved Application
+            </a>
+          </div>
+        </div>
+      </div>
+    </app-main-content-container>
+  </app-dashboard-content-container>
+</app-dashboard-container>

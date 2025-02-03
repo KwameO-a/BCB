@@ -1,0 +1,47 @@
+<ng-container [ngSwitch]="PAGE_STATE">
+  <section *ngSwitchCase="PROGRESS.DONE" class="main-content-body">
+    <div
+      class="ads-banner"
+      [style.background-image]="
+        'url(' +
+        assetUrl +
+        '/assets/svgs/progresive-6.svg), linear-gradient(94deg, #0064fc, #03a)'
+      "
+    >
+      <div class="text-block">Select your business to get started.</div>
+    </div>
+    <section class="services-container">
+      <section class="service-grid-container">
+        <div
+          #grid1
+          *ngFor="let data of REQUIREMENTS_DATA; let i = index"
+          class="service-grid-item"
+          [ngClass]="{ active: activeItem }"
+          (mouseenter)="expandTile(data)"
+          (mouseleave)="shrinkTile(data)"
+        >
+          <app-service-item
+            [item]="data"
+            [active]="data === activeItem"
+          ></app-service-item>
+        </div>
+      </section>
+
+      <!-- <mat-grid-list style="width: 900px;" cols="4"  >
+        <mat-grid-tile
+            *ngFor="let tile of tiles"
+            [colspan]="tile.cols"
+            [rowspan]="tile.rows"
+            [style.background]="tile.color">
+          {{tile.text}}
+        </mat-grid-tile>
+      </mat-grid-list> -->
+    </section>
+  </section>
+
+  <ng-container *ngSwitchCase="PROGRESS.LOADING">
+    <section class="loader-screen">
+      <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+    </section>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,57 @@
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.dialog-header h4 {
+  margin: 0;
+  color: #1a314d;
+  font-weight: 500;
+}
+
+#close-button {
+  background: transparent;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-outline {
+  background-color: #ffffff;
+  color: #0089ff;
+  border: 2px solid #0089ff;
+  font-family: "BentonSans-Bold", Arial;
+  padding: 2.7% 5%;
+  cursor: pointer;
+}
+
+.footer-buttons button {
+  margin-right: 10px;
+}
+
+.footer-buttons button:first-child {
+  color: #1a314d;
+  font-weight: 500;
+}
+
+.footer-buttons button:last-child {
+  margin-right: 0px;
+  color: #0062e1;
+  font-weight: 500;
+}
+
+@media (max-width: 481px) {
+  .btn-outline {
+    display: block;
+  }
+}
+
+@media (max-width: 1024px) {
+}

@@ -1,0 +1,193 @@
+:host {
+  --login-form-width: 100%;
+  --login-form-height: 100%;
+}
+
+.main-content-body {
+  width: 100%;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.account-details-forms-container {
+  width: 80%;
+  background: #ffffff;
+  box-shadow: 0px 10px 40px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+}
+
+.select_with_search_dropdown {
+  margin-bottom: 20px;
+}
+
+.input_with_info {
+  display: flex;
+  align-items: center;
+}
+.inner-form1 {
+  width: 100%;
+  padding: 20px 50px;
+}
+
+.activity_type_checkbox {
+  min-width: 200px;
+  text-transform: uppercase;
+}
+
+.checkboxes {
+  margin: 10px 0px;
+}
+
+.left-side
+  > .regName:nth-child(1)
+  > .right-side-check
+  > .example-margin:nth-child(2) {
+  margin-left: 200px;
+}
+
+.inner-form1 h2 {
+  font-family: "BentonSans Light";
+  font-weight: normal;
+  font-size: 40px;
+  margin-top: 20px;
+  margin-left: 110px;
+  width: 50%;
+  color: #ffb81d;
+  font-weight: 300;
+}
+
+.entire-main-form-side mat-form-field mat-label {
+  text-transform: uppercase;
+}
+.entire-main-form-side {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  // flex-wrap: wrap;
+  width: 100%;
+}
+
+.left-side mat-form-field {
+  width: 100%;
+}
+
+.right-side mat-form-field {
+  width: 100%;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.source-active {
+  display: block!important;
+}
+
+.source-disabled {
+  display: none!important;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+@media (min-width: 768px) and (max-width: 1450px) {
+  .entire-main-form-side {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-side {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin-right: 0px;
+  }
+
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    // padding-right: 130px;
+  }
+
+  .left-side mat-form-field {
+    width: 100%;
+  }
+
+  .right-side mat-form-field {
+    width: 100%;
+  }
+}
+
+.account-info-type-detail {
+  display: flex;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .underline {
+    text-decoration: underline;
+    color: #0033a1;
+  }
+
+  .entire-main-form-side {
+    padding-top: 20px;
+    display: flex;
+    width: 100%;
+  }
+
+  .inner-form1 {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1450px) {
+  .left-side mat-form-field {
+    width: 100%;
+  }
+
+  .right-side mat-form-field {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .entire-main-form-side {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-side,
+  .right-side {
+    width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .left-side,
+  .right-side,
+  .account-details-forms-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 481px) {
+  .left-side,
+  .right-side,
+  .account-details-forms-container {
+    width: 100%;
+  }
+}
+
+.information-icon {
+  position: relative;
+  top: -25%;
+  left: 2%;
+}

@@ -1,0 +1,81 @@
+<section class="search-bar-wrapper">
+  <section class="search-bar-container">
+
+      
+    <img class="search-icons" matRipple src="/assets/svgs/icn_search.svg" alt="" srcset="">
+
+    <input (focus)="openSearchDrawer()" (focusout)="closeSearchDrawer()" type="text" class="search-bar-input" placeholder="Search">
+
+    <div matRipple mat-mini-fab color="warn" id="filter-button" (click)="showFilter = !showFilter">
+      <img class="search-icons" matRipple src="/assets/svgs/icn_slider_controls.svg" alt="" srcset="">
+    </div>
+
+    <!-- <section class="search-controller">
+      <img class="search-icons" matRipple src="/assets/svgs/icn_slider_controls.svg" alt="" srcset="">
+      <img class="search-icons" style="position : absolute;" matRipple src="/assets/svgs/pulse.gif" alt="" srcset="">
+    </section> -->
+
+
+
+    
+  </section>
+
+  <section  *ngIf="showSearch" class="search-dropdown-drawer">
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+    <p>  hello this is from me</p>
+  </section>
+
+  <section  *ngIf="showFilter" class="filter-dropdown-drawer">
+
+    <h4>FIlter by date</h4>
+
+    <section >
+      
+      <input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+    </section>
+  </section>
+</section>
+
+

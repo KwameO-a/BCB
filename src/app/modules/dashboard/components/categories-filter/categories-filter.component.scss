@@ -1,0 +1,161 @@
+:host{
+  width: 100%;
+  height: var(--nav-header-height);
+  }
+  
+.header-navigation-container{
+  width: 100%;
+}
+
+.categories-nav-container{
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.categories-nav-button{
+  display: flex;
+  align-items: center;
+
+  padding: 10px 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#icon-borders{
+  width: 20px;
+  height: 20px;
+}
+
+.category-recommendations{
+  display: flex;
+flex-direction: column;
+}
+
+.category-recommendations app-category-chip{
+  margin-right: 10px;
+}
+
+.recommendation-title{
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 14px;
+color: #0A2240;
+
+margin-bottom: 10px;
+}
+.recommendation-body{
+  display: flex;
+}
+
+.categories-menu {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 180px;
+  max-width: 280px;
+  background-color: rgb(255, 255, 255);
+  padding: 6px 0;
+
+  box-shadow: 0px 4.77778px 28.6667px rgba(0, 0, 0, 0.1);
+
+}
+
+.categories-menu a{
+  text-decoration: none;
+  color: black;
+}
+
+.categories-menu-item {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+
+  user-select: none;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+}
+
+.categories-menu-item.title{
+  font-size: 10px;
+  color: #0062E1;
+}
+.categories-menu-item:hover {
+  background-color: rgb(208, 208, 208);
+}
+
+.categories-menu-item:active {
+  background-color: rgb(170, 170, 170);
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+
+  
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  /* CSS */
+  
+  // .profile-section{
+  //   display: none;
+  // }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (max-width: 767px) {
+
+}

@@ -1,0 +1,91 @@
+:host {
+  --login-form-width: 100%;
+  --login-form-height: 100%;
+}
+
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}
+
+// .wrapper-dashed{
+//   border: 0.5px dashed rgba(0, 0, 0, 0.0666666667);
+//     padding: 5px;
+//     border-radius: 2px;
+//     margin-bottom: 20px;
+
+// }
+
+.main-content-body {
+  width: 100%;
+  padding: 0px 0px 0px 0px;
+  box-sizing: border-box;
+}
+
+.account-details-forms-container {
+  width: 100%;
+}
+
+.entire-form1 {
+  width: 100%;
+  padding: 0px 40px;
+}
+
+.inner-form1 {
+  width: 100%;
+  padding-bottom: 7%;
+}
+.inner-form1 .summary-title {
+  font-family: "BentonSans Light";
+  font-weight: normal;
+  font-size: 40px;
+  padding: 30px;
+  margin-top: 20px;
+  color: #ffb81d;
+  font-weight: 300;
+}
+
+.inner-form1 h3 {
+  font-family: "BentonSans Regular";
+  font-size: 20px;
+  padding: 0px 30px;
+  color: gray;
+  margin-top: -15px;
+}
+
+mat-accordion {
+  margin-bottom: 30px;
+}
+
+mat-expansion-panel {
+  margin-bottom: 10px;
+}
+
+mat-expansion-panel-header {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-btn {
+  position: absolute;
+  left: 92%;
+  top: 15%;
+  cursor: pointer;
+}
+
+.edit-btn h2 {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .entire-form1 {
+    padding: 0px;
+  }
+
+  mat-expansion-panel {
+    width: 95% !important;
+  }
+}

@@ -1,0 +1,18 @@
+<button
+[style.width]="width"
+[style.height]="height" 
+[style.background]="backgroundColor"
+[style.color]="textColor"
+[style.border]="border"
+[style.margin-left]="marginleft"
+[style.margin-right]="marginright"
+mat-flat-button class="app-custom-button"
+(click)="clicked()"
+
+#buttonSelector
+>
+ 
+  <ng-content>
+
+  </ng-content>
+</button>

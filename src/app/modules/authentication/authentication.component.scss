@@ -1,0 +1,191 @@
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.main-content-body {
+  width: 100%;
+  padding: 10px 0px 0px 40px;
+  box-sizing: border-box;
+}
+
+.getting-started-info {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.getting-started-info h2 {
+  color: #3c4b6c;
+  font-family: "BentonSans-ExtraLight", Arial;
+  font-size: 42px;
+  line-height: 46px;
+
+  margin-bottom: 20px;
+}
+
+.getting-started-info .button-container {
+  display: flex;
+}
+
+.button-filled {
+  width: fit-content;
+  height: 60px;
+
+  background-color: #0089ff;
+  color: #ffffff;
+  border: none;
+  font-family: "BentonSans-Bold", Arial;
+  margin-right: 30px;
+  cursor: pointer;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content-container {
+  flex: 1 1 auto;
+  height: calc(100vh - var(--dashboard-header-height));
+}
+
+.button-outlined {
+  width: fit-content;
+  height: 60px;
+  background-color: #ffffff;
+  color: #0089ff;
+  border: 2px solid #0089ff;
+  font-family: "BentonSans-Bold", Arial;
+  cursor: pointer;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container a {
+  text-decoration: none;
+}
+
+.application-welcome-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.application-welcome-container img {
+  width: 450px;
+}
+
+.back-button-design {
+  display: flex;
+  align-items: center;
+}
+
+.back-button-design img {
+  margin-right: 10px;
+}
+
+.main-dash-content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.login-form-container {
+  margin: 20 0px;
+}
+
+/*
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+}
+
+/*
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* CSS */
+}
+
+/*
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* CSS */
+}
+
+/*
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* CSS */
+}
+
+/*
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  /* CSS */
+
+  // .profile-section{
+  //   display: none;
+  // }
+}
+
+/*
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (max-width: 767px) {
+  :host {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .main-content-body {
+    width: 100%;
+    padding: 20px 20px;
+    box-sizing: border-box;
+  }
+
+  .getting-started-info {
+    width: 90%;
+  }
+
+  .application-welcome-container {
+    flex-direction: column;
+  }
+
+  .getting-started-info .button-container {
+    flex-direction: column;
+  }
+
+  .getting-started-info .button-container button {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .main-content-container {
+    flex: none;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+}

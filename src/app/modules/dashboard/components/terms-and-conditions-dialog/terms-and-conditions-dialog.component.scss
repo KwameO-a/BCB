@@ -1,0 +1,42 @@
+.dialog-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.dialog-header h4{
+  margin: 0;
+  color: #1A314D;
+  font-weight: 500;
+}
+
+#close-button{
+  background: transparent;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.footer-buttons{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.footer-buttons button{
+  margin-right: 10px;
+}
+
+.footer-buttons button:first-child{
+
+  color: #1A314D;
+  font-weight: 500;
+
+}
+
+.footer-buttons button:last-child{
+  margin-right: 0px;
+  color: #0062E1;
+  font-weight: 500;
+}

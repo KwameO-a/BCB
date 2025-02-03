@@ -1,0 +1,142 @@
+<div class="required" *ngIf="selectedEntity">
+  <div
+    class="ads-banner"
+    [style.background-image]="
+      'url(' +
+      assetUrl +
+      '/assets/svgs/progresive-6.svg), linear-gradient(94deg, #0064fc, #03a)'
+    "
+  >
+    <div class="text-block">Let’s get started opening your new account</div>
+  </div>
+
+  <div class="data">
+    <mat-expansion-panel
+      class="panel"
+      (opened)="panelExpanded = 1"
+      (closed)="panelExpanded = 0"
+    >
+      <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title class="h-text">
+          <div>
+            <span class="reveal">
+            
+              {{ panelExpanded === 1 ? "-" : "+" }}
+            
+            </span>
+            <span>Requirements</span>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul class="custom-circle-list">
+        <li *ngFor="let data of selectedEntity.data">{{ data }}</li>
+      </ul>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel
+      *ngIf="selectedEntity['Specific Requirements'] && normal"
+      class="panel"
+      (opened)="panelExpanded = 2"
+      (closed)="panelExpanded = 0"
+    >
+    <mat-panel-title class="h-text">
+      <div>
+        <span class="reveal">
+    
+          {{ panelExpanded === 1 ? "-" : "+" }}
+    
+        </span>
+        <span>Specific Requirements</span>
+      </div>
+    </mat-panel-title>
+      <ul class="custom-circle-list">
+        <li *ngFor="let data of selectedEntity['Specific Requirements']">
+          {{ data }}
+        </li>
+      </ul>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel
+      *ngIf="selectedEntity['Specific Requirements'] && !normal"
+      class="panel"
+      (opened)="panelExpanded = 3"
+      (closed)="panelExpanded = 0"
+    >
+  
+
+      <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title class="h-text">
+          <div>
+            <span class="reveal">
+        
+              {{ panelExpanded === 1 ? "-" : "+" }}
+        
+            </span>
+            <span>Specific Requirements</span>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p class="specific-req-title">Limited by Guarantee - Registered</p>
+
+      <ul class="custom-circle-list">
+        <li
+          *ngFor="
+            let data of selectedEntity['Specific Requirements'][
+              'Limited by Guarantee - Registered'
+            ]
+          "
+        >
+          {{ data }}
+        </li>
+      </ul>
+
+      <p class="specific-req-title">Unregistered</p>
+
+      <ul class="custom-circle-list">
+        <li
+          *ngFor="
+            let req of selectedEntity['Specific Requirements']['Unregistered']
+          "
+        >
+          {{ req }}
+        </li>
+      </ul>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel
+      *ngIf="
+        selectedEntity &&
+        selectedEntity['Additional Requirement for Subsidiary Sole Proprietor']
+      "
+      class="panel"
+      (opened)="panelExpanded = 4"
+      (closed)="panelExpanded = 0"
+    >
+      <mat-expansion-panel-header class="panel-header">
+<mat-panel-title class="h-text">
+  <div>
+    <span class="reveal">
+
+      {{ panelExpanded === 1 ? "-" : "+" }}
+
+    </span>
+    <span>Additional Requirement for Subsidiary Sole
+      Proprietor</span>
+  </div>
+</mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <ul class="custom-circle-list">
+        <li
+          *ngFor="
+            let data of selectedEntity[
+              'Additional Requirement for Subsidiary Sole Proprietor'
+            ]
+          "
+        >
+          {{ data }}
+        </li>
+      </ul>
+    </mat-expansion-panel>
+  </div>
+</div>

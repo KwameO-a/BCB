@@ -1,0 +1,38 @@
+<section class="dashboard-sub-navigation">
+  <section class="header-row">
+    <!-- <h2>{{requirement.name}}</h2> -->
+    <div class="head-text">{{ head_title }}</div>
+    <app-stepper-component
+      [(value)]="position"
+      (emitCurrentState)="updateSelectedIndex($event)"
+      class="stepper-component"
+    >
+      <cdk-step
+        [completed]="state.businessInfoComplete"
+        [label]="'Client Information'"
+        >1</cdk-step
+      >
+      <cdk-step
+        [completed]="state.accountInfoComplete"
+        [label]="'Authorized Delegate'"
+        >2</cdk-step
+      >
+      <cdk-step [completed]="state.managementInfoComplete" [label]="'Review'"
+        >3</cdk-step
+      >
+      <cdk-step
+        [completed]="state.digitalChannelsInfoComplete"
+        [label]="'Review'"
+        >4</cdk-step
+      >
+      <cdk-step
+        [completed]="state.documentUploadInfoComplete"
+        [label]="'Review'"
+        >5</cdk-step
+      >
+    </app-stepper-component>
+    <div class="space"></div>
+  </section>
+</section>
+
+<!-- <ng-content></ng-content> -->

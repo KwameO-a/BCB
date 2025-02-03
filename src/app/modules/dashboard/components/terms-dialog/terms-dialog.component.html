@@ -1,0 +1,12 @@
+<div style="height: 30px;">
+  <p class="dialog-heading" *ngIf="data.type === 'terms'">Terms and Conditions</p>
+  <p class="dialog-heading" *ngIf="data.type === 'declaration'">Declaration</p>
+</div>
+<pdf-viewer [src]="src" [original-size]="false"></pdf-viewer>
+
+
+<div style="height: 20px !important;" fxLayoutAlign="flex-end">
+  <div>
+    <button (click)="close()" style="color: #0089FF !important; background: white !important;" mat-button>CLOSE</button>
+  </div>
+</div>

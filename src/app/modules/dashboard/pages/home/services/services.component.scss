@@ -1,0 +1,130 @@
+:host {
+  --login-form-width: 100%;
+  --login-form-height: 100%;
+}
+
+.main-content-body {
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  box-sizing: border-box;
+  height: calc(100vh - var(--dashboard-header-height));
+}
+
+.ads-banner {
+  height: 80px;
+  background-position: 95%, 0 0;
+  background-repeat: no-repeat, repeat;
+  background-size: auto, auto;
+  border-radius: 15px;
+  align-items: center;
+  margin: 20px;
+  padding: 0px 24px;
+  display: flex;
+}
+
+.text-block {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 24px;
+  line-height: 32px;
+  color: #fff;
+}
+
+.services-container {
+  display: flex;
+  width: 100%;
+  padding: 20px 40px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: background-color 0.3s ease;
+  h2 {
+    font-family: "BentonSans Regular";
+    padding: 20px 0px;
+  }
+}
+
+mat-grid-list {
+  height: 100%;
+  width: 100%;
+}
+
+.service-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  transition: background-color 0.3s ease;
+  .active {
+    height: 100% !important;
+  }
+}
+
+.service-grid-container .service-grid-item {
+  width: 30%;
+  height: 100px;
+  margin-bottom: 30px;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .underline {
+    text-decoration: underline;
+    color: #0033a1;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 500px) {
+  .service-grid-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .services-container {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1080px) {
+  .service-grid-container .service-grid-item {
+    width: 45%;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1080px) {
+  .service-grid-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .service-grid-item {
+      width: 45%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  :host {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .text-block {
+    font-size: 16px !important;
+    line-height: 24px !important;
+    text-align: left;
+    width: 60%;
+    padding: 20px 0px;
+  }
+
+  .service-grid-container .service-grid-item {
+    width: 100%;
+  }
+}

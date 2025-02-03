@@ -1,0 +1,23 @@
+
+<section class="main-container">
+
+  <!-- <img class="map-svg"  src="/assets/svgs/request.svg" /> -->
+
+
+  <span class="heading">{{message}}</span>
+  <span class="sub-heading margin-bottom">Please try again, loading data failed. </span>
+
+  <app-button
+ 
+    (trigger)="tryAgain()"
+    [width]="'200px'"
+    [height]="'45px'"
+    [color]="'black'"
+    >
+    <section class="back-button-design">
+      <span> TRY AGAIN</span>
+    </section>
+  </app-button>
+</section>
+
+ 

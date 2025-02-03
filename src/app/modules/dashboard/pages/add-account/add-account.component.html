@@ -1,0 +1,124 @@
+<ng-container [ngSwitch]="PAGE_STATE">
+  <app-dashboard-subheader
+    *ngIf="PAGE_STATE !== PROGRESS.COMPLETE && navigationPosition !== 0"
+    [position]="navigationPosition"
+    [requirement]="accountData"
+    [totalSteps]="totalSteps"
+    [(state)]="STATES"
+    [head_title]="getTitleFromNavigationPosition()"
+  ></app-dashboard-subheader>
+
+  <section *ngSwitchCase="PROGRESS.DONE" class="main-content-body">
+    <h4
+      class="notice-heading"
+      *ngIf="userData && userData.status === 'SUBMITTED'"
+    >
+      Your application has been submitted and is under review. you will not be
+      able to make changes.
+    </h4>
+
+    <section class="main-account-details-container">
+      <section class="main-forms-content" style="padding: 20px">
+        <app-required-documents
+          *ngIf="navigationPosition == 0"
+          [selectedAccountId]="accountData.id"
+        >
+        </app-required-documents>
+
+        <app-add-business-details
+          [(businessInfo)]="businessInfo"
+          [package]="accountData.id"
+          [(isBusinessDetailsValid)]="STATES.businessInfoComplete"
+          *ngIf="navigationPosition == 1"
+        ></app-add-business-details>
+
+        <app-add-account-details
+          [(accountInfo)]="accountInfo"
+          [(isAccountDetailsValid)]="STATES.accountInfoComplete"
+          *ngIf="navigationPosition == 2"
+        >
+        </app-add-account-details>
+
+        <app-add-management-details
+          [(managementInfo)]="managementInfo"
+          [(isManagementDetailsValid)]="STATES.managementInfoComplete"
+          [package]="accountData.id"
+          *ngIf="navigationPosition == 3"
+        >
+        </app-add-management-details>
+
+        <app-add-digital-channels
+          [(digitalChannels)]="digitalChannels"
+          [(isDigitalChannelsValid)]="STATES.digitalChannelsInfoComplete"
+          *ngIf="navigationPosition == 4"
+        >
+        </app-add-digital-channels>
+
+        <app-add-documents-upload
+          [(isDocumentUploadValid)]="STATES.documentUploadInfoComplete"
+          [(documentUploadInfo)]="documentUploadInfo"
+          *ngIf="navigationPosition == 5"
+        >
+        </app-add-documents-upload>
+
+        <app-add-review
+          (navigateBack)="navigateToForm($event)"
+          *ngIf="navigationPosition == 6"
+        >
+        </app-add-review>
+      </section>
+
+      <section class="stepper-navigator">
+        <button (click)="back()" [ngClass]="'back-button'">
+          <section class="back-button-design">
+            <img
+              [src]="assetUrl + '/assets/svgs/arrow-left.svg'"
+              alt=""
+              srcset=""
+            />
+            <span>BACK</span>
+          </section>
+        </button>
+        <!-- <button (click)="previousForm()" mat-flat-button>Back</button> -->
+
+        <ng-container>
+          <button
+            *ngIf="
+              navigationPosition + 1 < totalSteps &&
+              userData &&
+              userData.status !== 'SUBMITTED'
+            "
+            (click)="nextPage()"
+            class="continue-button"
+          >
+            CONTINUE
+          </button>
+
+          <button
+            *ngIf="
+              navigationPosition + 1 === totalSteps &&
+              userData &&
+              userData.status !== 'SUBMITTED'
+            "
+            (click)="openTermsAndConditionsDialog()"
+            class="submit-button"
+          >
+            Submit
+          </button>
+        </ng-container>
+      </section>
+    </section>
+  </section>
+
+  <ng-container *ngSwitchCase="PROGRESS.LOADING">
+    <section class="loader-screen">
+      <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+    </section>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="PROGRESS.COMPLETE">
+    <section class="loader-screen">
+      <app-application-complete></app-application-complete>
+    </section>
+  </ng-container>
+</ng-container>

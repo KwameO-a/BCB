@@ -1,0 +1,301 @@
+:host {
+  --login-form-width: 100%;
+  --login-form-height: 100%;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0px;
+}
+
+.main-content-body {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.account-details-forms-container {
+  width: 100%;
+}
+
+.entire-form1 {
+  margin-left: 110px;
+}
+
+.inner-form1 {
+  width: 90%;
+}
+
+.inner-form1 h2 {
+  font-family: "BentonSans Light";
+  font-weight: normal;
+  font-size: 40px;
+  margin: 10px;
+  color: #ffb81d;
+  font-weight: 300;
+}
+
+.entire-main-form-side mat-form-field mat-label {
+  text-transform: uppercase;
+}
+
+.entire-main-form-side {
+  display: flex;
+  width: 100%;
+  margin-left: 110px;
+}
+
+.left-side mat-form-field {
+  width: 100%;
+}
+
+.right-side mat-form-field {
+  width: 100%;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+.formOne {
+  justify-content: space-between;
+  display: flex;
+}
+
+mat-accordion {
+  margin-bottom: 10px;
+}
+
+mat-form-field {
+  padding-bottom: 0px;
+}
+
+.lower-side {
+  display: flex;
+  .left-lower-side,
+  .right-lower-side {
+    .example-full-width {
+      width: 100%;
+    }
+  }
+}
+
+.upper-side {
+  margin: 10px 0px;
+  .example-full-width {
+    width: 75%;
+  }
+}
+
+mat-expansion-panel {
+  margin-bottom: 10px;
+}
+
+mat-panel-description {
+  justify-content: flex-end;
+}
+
+.remove-button {
+  color: #d0021b;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.add-button {
+  color: rgb(0, 137, 255);
+  font-size: 12px;
+}
+
+.managment-header-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.remove-management-button {
+  display: flex;
+}
+
+.management-info-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.management-details-container {
+  border: 0.5px dashed rgba(0, 0, 0, 0.0666666667);
+  padding: 5px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.left-side-check mat-checkbox {
+  font-family: "BentonSans Regular";
+  font-size: 30px;
+}
+
+.mdc-form-field > label {
+  font-size: 30px;
+}
+
+.regName {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+
+.regName .checkboxes .left-side-check {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field mat-label {
+  font-family: "BentonSans Regular";
+}
+
+.inner-regName mat-label {
+  font-family: "BentonSans";
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: row;
+  margin-left: -10px;
+  margin-bottom: 10px;
+}
+
+.checkboxes .right-side-check {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 50px;
+}
+
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}
+
+mat-panel-title {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.701);
+}
+
+.mat-expansion-panel-header-title {
+  margin: 0px;
+  flex-grow: 3;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .underline {
+    text-decoration: underline;
+    color: #0033a1;
+  }
+
+  .entire-main-form-side {
+    padding-top: 20px;
+    display: flex;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1450px) {
+  .left-side mat-form-field {
+    width: 100%;
+  }
+
+  .right-side mat-form-field {
+    width: 100%;
+  }
+}
+@media (min-width: 1024px) {
+  .left-lower-side {
+    margin-right: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  .entire-main-form-side {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-side,
+  .right-side {
+    width: 80%;
+  }
+
+  .upper-side {
+    .example-full-width {
+      width: 100%;
+    }
+  }
+
+  .formOne {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .upper-side {
+    width: 100%;
+  }
+
+  .lower-side {
+    flex-direction: column;
+  }
+  .left-lower-side,
+  .right-lower-side {
+    margin-bottom: 20px;
+  }
+
+  s .mat-expansion-panel-header-title {
+    margin: 0px;
+    flex-grow: 4;
+  }
+}
+
+@media (max-width: 767px) {
+  .left-side,
+  .right-side,
+  .inner-form1,
+  .account-details-forms-container {
+    width: 100%;
+  }
+
+  .entire-form1 {
+    margin: 0px;
+    padding: 0px 20px;
+    width: 100%;
+  }
+
+  .mat-expansion-panel-header-title {
+    margin: 0px;
+    flex-grow: 4;
+  }
+}
+
+@media (max-width: 481px) {
+  .left-side,
+  .right-side,
+  .account-details-forms-container {
+    width: 100%;
+  }
+
+  .entire-form1 {
+    padding: 0px;
+  }
+
+  .mat-expansion-panel-header-title {
+    font-size: 12px;
+    margin: 0px;
+    flex-grow: 4;
+  }
+}

@@ -1,0 +1,162 @@
+<ng-container [ngSwitch]="PAGE_STATE">
+  <section *ngSwitchCase="PROGRESS.DONE" class="main-content-body">
+
+    <section>
+      <!-- {{businessDetails.value | json}} -->
+    </section>
+
+    <section class="account-details-forms-container">
+      <div class="inner-form1">
+
+        <form [formGroup]="businessDetails">
+
+          <div class="entire-main-form-side">
+
+            <div class="left-side">
+
+              <section>
+                <mat-form-field  class="general-input" appearance="outline">
+                  <mat-label>RESIDENCY</mat-label>
+                  <mat-select name="residency" formControlName="residency" [(ngModel)]="businessInfo.residency">
+                    <mat-option [value]="residency" *ngFor="let residency of RESIDENCY_OPTIONS">
+                      {{residency}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </section>
+
+              <ng-container *ngIf="package !== ACCOUNT_PACKAGES.SOLE_PROPRITOR && package !== ACCOUNT_PACKAGES.NGOS_ACCOUNT">
+              <section class="select_with_search_dropdown inputs_margin">
+                <app-search-dropdown [items]="COUNTRIES" [selected]="businessInfo.country" [size]="'small'"
+                  [label]="'name'" [uid]="'name'" (afterChange)="getSelectedCountry($event)"
+                  [placeholder]="'COUNTRY OF INCORPORATION'">
+                </app-search-dropdown>
+              </section>
+              </ng-container>
+
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Registered Name</mat-label>
+                <input name="registeredName" formControlName="registeredName" [(ngModel)]="businessInfo.registeredName"
+                  matInput placeholder="" [value]="businessInfo.registeredName">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Account Trade Name</mat-label>
+                <input name="tradeName" formControlName="tradeName" [(ngModel)]="businessInfo.tradeName" matInput
+                  placeholder="Account" [value]="businessInfo.tradeName">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Physical Business Address</mat-label>
+                <input name="physicalAddress" formControlName="physicalAddress"
+                  [(ngModel)]="businessInfo.physicalAddress" matInput placeholder=""
+                  [value]="businessInfo.physicalAddress">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Postal Address</mat-label>
+                <input name="postalAddress" formControlName="postalAddress"
+                  [(ngModel)]="businessInfo.postalAddress" matInput placeholder=""
+                  [value]="businessInfo.postalAddress">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Business Telephone Number</mat-label>
+                <input name="telephone" formControlName="telephone" [(ngModel)]="businessInfo.telephone"
+                  [value]="businessInfo.telephone" matInput placeholder="" [value]="businessInfo.telephone">
+              </mat-form-field>
+
+            </div>
+
+            <div class="right-side">
+
+              <section class="select_with_search_dropdown inputs_margin">
+                <app-search-dropdown
+
+                [items]="INDUSTRIES"
+                [selected]="businessInfo.sector"
+                 [size]="'small'"
+                  [label]="'name'"
+                  [uid]="'name'"
+                  (afterChange)="getSelectedIndustry($event)"
+                  [placeholder]="'SELECT A SECTOR / INDUSTRY'">
+                </app-search-dropdown>
+              </section>
+
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Registration Number</mat-label>
+                <input name="registrationNo" formControlName="registrationNo" [(ngModel)]="businessInfo.registrationNo"
+                  [value]="businessInfo.registrationNo" matInput placeholder="">
+              </mat-form-field>
+
+
+
+              <mat-form-field appearance="outline">
+                <mat-label>REGISTRATION DATE</mat-label>
+                <input name="regDate" formControlName="regDate" [(ngModel)]="businessInfo.regDate" matInput
+                  [matDatepicker]="picker" [max]="todayDate" placeholder="REGISTRATION DATE">
+                <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Tax Identification Number (TIN)</mat-label>
+                <input name="tin" formControlName="tin" [(ngModel)]="businessInfo.tin" [value]="businessInfo.tin"
+                  matInput placeholder="">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="outline" floatLabel="always">
+                <mat-label>Anticipated Annual Turnover (In Local Currency)</mat-label>
+                <input name="annualTurnover" formControlName="annualTurnover" [(ngModel)]="businessInfo.annualTurnover"
+                  [value]="businessInfo.annualTurnover" matInput placeholder="">
+                  <span matTextPrefix>GHS&nbsp;</span>
+
+              </mat-form-field>
+
+
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Additional Business Details</mat-label>
+                <textarea name="additionalDetails" formControlName="additionalDetails"
+                  [(ngModel)]="businessInfo.additionalDetails" [value]="businessInfo.additionalDetails" matInput
+                  rows="7"></textarea>
+              </mat-form-field>
+
+
+              <!-- Hide this field if not SOLE_PROPRITOR - TEMPORARILY DISABLED  -->
+              <!-- <ng-container *ngIf="package !== ACCOUNT_PACKAGES.SOLE_PROPRITOR">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>NAME OF AFFILIATED COMPANY OR BODY</mat-label>
+                  <input name="affiliatedCompany" formControlName="affiliatedCompany"
+                    [(ngModel)]="businessInfo.affiliatedCompany" [value]="businessInfo.affiliatedCompany" matInput
+                    placeholder="NAME OF AFFILIATED COMPANY OR BODY">
+                </mat-form-field>
+              </ng-container> -->
+
+              <!-- <ng-container *ngIf="package !== ACCOUNT_PACKAGES.SOLE_PROPRITOR && package !== ACCOUNT_PACKAGES.NGOS_ACCOUNT">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>PRINCIPAL SHAREHOLDERS (SHAREHOLDING OF 10% AND ABOVE)</mat-label>
+                <input name="principalShareholders" formControlName="principalShareholders"
+                  [(ngModel)]="businessInfo.principalShareholders" [value]="businessInfo.principalShareholders" matInput
+                  placeholder="PRINCIPAL SHAREHOLDERS (SHAREHOLDING OF 10% AND ABOVE)">
+              </mat-form-field>
+            </ng-container> -->
+
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+
+
+    </section>
+
+  </section>
+
+  <ng-container *ngSwitchCase="PROGRESS.LOADING">
+
+    <section class="loader-screen">
+      <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+    </section>
+  </ng-container>
+</ng-container>

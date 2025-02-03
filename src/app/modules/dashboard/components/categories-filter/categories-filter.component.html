@@ -1,0 +1,38 @@
+<section class="categories-filter-container">
+
+  <nav  class="categories-nav-container">
+    <div [cdkMenuTriggerFor]="menu" class="categories-nav-button" matRipple>
+      <img style="margin-right: 10px" id="icon-borders" [src]="assetUrl+'/assets/svgs/icn_slider_controls.svg'" alt="" srcset="">
+      <span>Categories</span>
+      <img style="margin-left: 10px" id="icon-borders" [src]="assetUrl+'/assets/svgs/icn_arrow_outline_down.svg'" alt="" srcset="">
+    </div>
+  </nav>
+
+  <section >
+    
+    <!-- <div class="categories-menu" cdkMenu>
+      <button class="categories-menu-item" cdkMenuItem>Inbox</button>
+      <button class="categories-menu-item" cdkMenuItem>Snoozed</button>
+      <button class="categories-menu-item" cdkMenuItem>Important</button>
+      <button class="categories-menu-item" cdkMenuItem>Sent</button>
+      <button class="categories-menu-item" cdkMenuItem>Drafts</button>
+      <button class="categories-menu-item" cdkMenuItem>All Mail</button>
+    </div> -->
+
+    <ng-template #menu>
+      <div class="categories-menu" cdkMenu>
+        <span class="categories-menu-item title"> CATEGORY OPTIONS</span>
+        <a *ngFor="let cat of categories" [routerLink]="'/categories/'+cat.id" class="categories-menu-item" cdkMenuItem>{{cat.title}}</a>
+      </div>
+    </ng-template>
+  </section>
+
+
+  <section *ngIf="showRecommendations" class="category-recommendations">
+    <div class="recommendation-title">Recommendations</div>
+    <section class="recommendation-body">
+     
+    </section>
+    
+  </section>
+</section>

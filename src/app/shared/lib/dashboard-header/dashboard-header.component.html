@@ -1,0 +1,37 @@
+<div class="top-header"></div>
+<div class="top-content">
+  <div class="main-header">
+    <a routerLink="/" href="/" class="branding">
+      <img class="logo" [src]="assetUrl + '/assets/svgs/logo_blue.svg'" alt="" />
+      <span class="logo-text">Stanbic Bank</span>
+    </a>
+    <ng-container *ngIf="toggleSave && authService.isAuthenticated()">
+      <div class="actions">
+        <img [src]="assetUrl + '/assets/svgs/info.svg'" class="info" />
+        <img [src]="assetUrl + '/assets/svgs/reload.svg'" class="reload" />
+        <section class="save-button-design" (click)="saveAndExit()">
+          <span
+            style="
+              margin-right: 10px;
+              font-family: 'BentonSans Regular';
+              font-size: 17px;
+              color: black;
+            "
+            >Save & Exit</span
+          >
+          <img
+            class="icon-borders"
+            style="height: 15px; width: 15px"
+            [src]="assetUrl + '/assets/svgs/forward-button.svg'"
+            alt=""
+            srcset=""
+          />
+        </section>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="!(toggleSave && authService.isAuthenticated())">
+      <span class="header-text">Account Opening Application</span>
+    </ng-container>
+  </div>
+</div>

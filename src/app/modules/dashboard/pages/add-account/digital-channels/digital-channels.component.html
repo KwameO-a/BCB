@@ -1,0 +1,314 @@
+<ng-container [ngSwitch]="PAGE_STATE">
+  <section *ngSwitchCase="PROGRESS.DONE" class="main-content-body">
+    <section class="account-details-forms-container">
+      <div class="inner-form1">
+        <section>
+          <div class="entire-main-form-side">
+            <section class="left-side">
+              <!--Activate Channels Checkboxes (5)-->
+
+              <div class="regName">
+                <div class="inner-regName">
+                  <h3>Which Channels Would You Like To Activate</h3>
+                </div>
+
+                <div class="checkboxes">
+                  <div class="left-side-check">
+                    <mat-checkbox
+                      *ngFor="let item of accountChannelsActivities"
+                      [(ngModel)]="item.checked"
+                      [checked]="item.checked"
+                      (change)="addChannelActivity(item, $event)"
+                      class="activity_type_checkbox"
+                      >{{ item.name }}</mat-checkbox
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!--Functionality Activation Checkboxes (3)-->
+
+              <div class="regName">
+                <div class="inner-regName">
+                  <h3>What Functionality Would You Like To Be Activated</h3>
+                </div>
+
+                <div class="checkboxes">
+                  <div class="left-side-check">
+                    <mat-checkbox
+                      *ngFor="let item of accountFunctionalityActivities"
+                      [(ngModel)]="item.checked"
+                      [checked]="item.checked"
+                      (change)="addFunctionalityActivity(item, $event)"
+                      class="activity_type_checkbox"
+                      >{{ item.name }}</mat-checkbox
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!--Electronic Banking Inputs (3)-->
+
+              <section class="regName">
+                <div class="inner-regName">
+                  <h3>
+                    Electronic Banking Users Business Online (BOL) & Enterprise
+                    Online (EOL)
+                  </h3>
+                </div>
+
+                <form
+                  [formGroup]="item"
+                  *ngFor="
+                    let item of ebankingUsersFormGroups;
+                    let index = index
+                  "
+                >
+                  <section
+                    style="
+                      display: flex;
+                      justify-content: flex-end;
+                      width: 100%;
+                    "
+                  >
+                    <button (click)="removeEBankingUser(index)" mat-flat-button>
+                      <div class="remove-item-button-container">
+                        <span>Remove User</span>
+                      </div>
+                    </button>
+                  </section>
+
+                  <section
+                    class="e-banking-users-form checkboxes"
+                    style="display: flex; flex-wrap: wrap; margin-left: 0px"
+                  >
+                    <div class="left-side-check">
+                      <mat-form-field
+                        style="width: 100%"
+                        class="example-full-width"
+                        appearance="outline"
+                      >
+                        <mat-label>Full Name</mat-label>
+                        <input
+                          [(ngModel)]="
+                            digitalChannels.bankUserData[index].fullName
+                          "
+                          name="fullName"
+                          formControlName="fullName"
+                          matInput
+                          placeholder="fullname"
+                          value=""
+                        />
+                      </mat-form-field>
+
+                      <mat-form-field
+                        style="width: 100%"
+                        class="example-full-width"
+                        appearance="outline"
+                      >
+                        <mat-label>Email Address</mat-label>
+                        <input
+                          [(ngModel)]="
+                            digitalChannels.bankUserData[index].email
+                          "
+                          name="email"
+                          formControlName="email"
+                          matInput
+                          placeholder="Email"
+                          value=""
+                        />
+                      </mat-form-field>
+                    </div>
+
+                    <div class="right-side-check">
+                      <mat-form-field
+                        style="width: 100%"
+                        class="example-full-width"
+                        appearance="outline"
+                      >
+                        <mat-label>CONTACT</mat-label>
+                        <input
+                          [(ngModel)]="
+                            digitalChannels.bankUserData[index].contact
+                          "
+                          name="contact"
+                          formControlName="contact"
+                          matInput
+                          placeholder="contact"
+                          value=""
+                        />
+                      </mat-form-field>
+                    </div>
+                  </section>
+                </form>
+
+                <section>
+                  <button (click)="addNewEBankUser()" mat-flat-button>
+                    <div class="add-item-button-container">
+                      <img
+                        style="width: 20px; height: 20px; margin-right: 10px"
+                        [src]="assetUrl + 'assets/svgs/bcc_add_icn.svg'"
+                        alt=""
+                      />
+                      <span>Add New Bank User</span>
+                    </div>
+                  </button>
+                </section>
+              </section>
+
+              <!--Names of Captures Input (1)-->
+              <section class="regName">
+                <h3>NAMES OF CAPTURERS</h3>
+
+                <form
+                  [formGroup]="capturer"
+                  *ngFor="
+                    let capturer of capturersFormGroups;
+                    let index = index
+                  "
+                  class="capturer-container"
+                >
+                  <section
+                    style="
+                      display: flex;
+                      justify-content: flex-end;
+                      width: 100%;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <button (click)="removeCapturer(index)" mat-flat-button>
+                      <div class="remove-item-button-container">
+                        <span>Remove Capturer</span>
+                      </div>
+                    </button>
+                  </section>
+
+                  <mat-form-field
+                    style="width: 100%; margin-left: 0px"
+                    class="example-full-width"
+                    appearance="outline"
+                  >
+                    <mat-label>Names Of Captures</mat-label>
+                    <input
+                      [(ngModel)]="digitalChannels.capturers[index]"
+                      name="name"
+                      formControlName="name"
+                      matInput
+                      placeholder="Name"
+                      value=""
+                    />
+                  </mat-form-field>
+                </form>
+
+                <section>
+                  <button (click)="addNewCapturer()" mat-flat-button>
+                    <div class="add-item-button-container">
+                      <img
+                        style="width: 20px; height: 20px; margin-right: 10px"
+                        [src]="assetUrl + 'assets/svgs/bcc_add_icn.svg'"
+                        alt=""
+                      />
+                      <span>Add Additional Capturer</span>
+                    </div>
+                  </button>
+                </section>
+              </section>
+            </section>
+
+            <section class="right-side">
+              <!--Authoriesers Inputs(2)-->
+
+              <div style="" class="regName">
+                <div class="inner-regName">
+                  <h3>Who Are The Authorisers</h3>
+                </div>
+
+                <div
+                  *ngFor="
+                    let authoriser of authorisersFormGroups;
+                    let index = index
+                  "
+                  class="authorizers-container checkboxes"
+                >
+                  <section class="authorizers-section">
+                    <button (click)="removeAuthoriser(index)" mat-flat-button>
+                      <div class="remove-item-button-container">
+                        <span>Remove Authoriser</span>
+                      </div>
+                    </button>
+                  </section>
+
+                  <form
+                    [formGroup]="authoriser"
+                    class="authorizers-form-container"
+                  >
+                    <mat-form-field
+                      style="width: 100%"
+                      class="example-full-width"
+                      appearance="outline"
+                    >
+                      <mat-label>FULL NAME</mat-label>
+                      <input
+                        [(ngModel)]="digitalChannels.autorisers[index].name"
+                        name="name"
+                        formControlName="fullname"
+                        matInput
+                        placeholder="Full Name"
+                      />
+                    </mat-form-field>
+
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>SIGNATORY TYPES</mat-label>
+                      <mat-select
+                        [(ngModel)]="
+                          digitalChannels.autorisers[index].signatoryType
+                        "
+                        name="signatoryType"
+                        formControlName="signatoryType"
+                      >
+                        <mat-option
+                          [value]="option"
+                          *ngFor="let option of SIGNATORY_TYPES"
+                        >
+                          {{ option }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </form>
+                </div>
+
+                <section>
+                  <button (click)="addNewAuthorisers()" mat-flat-button>
+                    <div class="add-item-button-container">
+                      <img
+                        style="width: 20px; height: 20px; margin-right: 10px"
+                        [src]="assetUrl + 'assets/svgs/bcc_add_icn.svg'"
+                        alt=""
+                      />
+                      <span>Add New Authoriser</span>
+                    </div>
+                  </button>
+                </section>
+              </div>
+
+              <mat-form-field style="width: 100%" appearance="outline">
+                <mat-label>Mandate Instructions</mat-label>
+                <textarea
+                  [(ngModel)]="digitalChannels.comments"
+                  matInput
+                  rows="7"
+                ></textarea>
+              </mat-form-field>
+            </section>
+          </div>
+        </section>
+      </div>
+    </section>
+  </section>
+
+  <ng-container *ngSwitchCase="PROGRESS.LOADING">
+    <section class="loader-screen">
+      <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+    </section>
+  </ng-container>
+</ng-container>

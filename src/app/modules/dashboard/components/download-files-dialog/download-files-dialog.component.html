@@ -1,0 +1,112 @@
+<section class="dialog-header">
+  <h4 mat-dialog-title>Additional Requirements</h4>
+
+  <button id="close-button" (click)="onNoClick()" mat-mini-fab>
+    <img
+      [src]="assetUrl + '/assets/svgs/icn_close_circle.svg'"
+      alt=""
+      srcset=""
+    />
+  </button>
+</section>
+<div mat-dialog-content>
+  <p class="lead">Please download and fill the necessary documents</p>
+
+  <div>
+    <!-- <div mat-subheader>Folders</div> -->
+    <div class="wrapper">
+      <!-- <div class="content-container">
+        <mat-icon mat-list-icon>download</mat-icon>
+      </div> -->
+      <div>
+        <p>Signature card</p>
+      </div>
+      <a
+        class="btn-outline"
+        target="_blank"
+        download
+        href="https://ghprdgodigisrv2.gh.sbicdirectory.com:8002/terms/Signaturecard.pdf"
+        >Signature Card</a
+      >
+    </div>
+    <br />
+    <br />
+
+    <div class="wrapper">
+      <div>
+        <p>Mandate Form (Sole proprietorship only)</p>
+      </div>
+      <div>
+        <a
+          class="btn-outline"
+          download
+          target="_blank"
+          href="https://ghprdgodigisrv2.gh.sbicdirectory.com:8002/terms/MandateFormSoleproprietorship.pdf"
+          >Mandate Form Sole proprietorship</a
+        >
+      </div>
+    </div>
+    <br />
+    <br />
+
+    <div class="wrapper">
+      <div>
+        <p>Fatca 1 (US Citizens only)</p>
+      </div>
+      <div>
+        <a
+          class="btn-outline"
+          download
+          target="_blank"
+          href="https://ghuatgodigisrv2.gh.sbicdirectory.com:7102/FileServices/File/view?sourceCode=account+opening&documenttype=id_document261f7422&filename=fatca1.pdf"
+          >Mandate Fatca 1</a
+        >
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="wrapper">
+      <div>
+        <p>Fatca 2 (US Citizens only)</p>
+      </div>
+      <div>
+        <a
+          class="btn-outline"
+          download
+          target="_blank"
+          href="https://ghuatgodigisrv2.gh.sbicdirectory.com:7102/FileServices/File/view?sourceCode=account+opening&documenttype=residence_proofc888f9a9&filename=fatca2.pdf"
+          >Mandate Fatca 2</a
+        >
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="wrapper">
+      <div>
+        <p>Fatca 3 (US Citizens only)</p>
+      </div>
+      <div>
+        <a
+          class="btn-outline"
+          download
+          target="_blank"
+          href="https://ghuatgodigisrv2.gh.sbicdirectory.com:7102/FileServices/File/view?sourceCode=account+opening&documenttype=photo53bcaf7a&filename=fatca3.pdf"
+          >Mandate Fatca 3</a
+        >
+      </div>
+    </div>
+    <br />
+    <br />
+  </div>
+
+  <div class="footer-buttons">
+    <button
+      class="dialog-button"
+      mat-button
+      (click)="closeDialog()"
+      cdkFocusInitial
+    >
+      CONTINUE
+    </button>
+  </div>
+</div>

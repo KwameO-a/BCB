@@ -1,0 +1,305 @@
+<ng-container [ngSwitch]="PAGE_STATE">
+  <section *ngSwitchCase="PROGRESS.DONE" class="main-content-body">
+    <section class="account-details-forms-container">
+      <section class="entire-form1">
+        <div class="inner-form1">
+          <section class="upload-documents-header-container">
+            <button
+              class="download-button"
+              (click)="openDownloadDialog()"
+            >
+              Download Registration Files
+            </button>
+          </section>
+
+          <div class="first-upload-section">
+            <div class="divider">
+              <h2 class="part-header">Part One</h2>
+
+              <div class="divider-line"></div>
+            </div>
+
+            <section class="upload-boxes" *ngFor="let det of arrDetails1">
+              <h3 class="mini-upload-title">{{ det.title }}</h3>
+
+              <section class="upload-cards-container">
+                <div class="upload">
+                  <div
+                    class="upload-box-wrapper"
+                    style="width: 100%; display: flex; flex-direction: row"
+                  >
+                    <div class="upload-box">
+                      <img
+                        [src]="assetUrl + '/assets/svgs/CreateDocument.svg'"
+                        alt=""
+                      />
+                      <span>Upload Document</span>
+                      <input
+                        type="file"
+                        multiple
+                        (change)="filesSelected(det.tag, $event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <ng-container *ngIf="det.tag === UPLOAD_FILES_TYPES.PASSPORT">
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.passportPicture;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+
+                <ng-container
+                  *ngIf="det.tag === UPLOAD_FILES_TYPES.SIGNATURE_CARD"
+                >
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.signatureCard;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+
+                <ng-container
+                  *ngIf="det.tag === UPLOAD_FILES_TYPES.MANDATE_FORM"
+                >
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.mandatorySignature;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+
+                <ng-container
+                  *ngIf="det.tag === UPLOAD_FILES_TYPES.OTHER_DOCUMENTS"
+                >
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.others;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+              </section>
+              <div class="divider-line-2"></div>
+            </section>
+          </div>
+
+          <div class="second-upload-section">
+            <div class="divider">
+              <h2 class="part-header">Part Two</h2>
+
+              <div class="divider-line"></div>
+            </div>
+
+            <section class="upload-boxes" *ngFor="let det of arrDetails2">
+              <h3 class="mini-upload-title">{{ det.title }}</h3>
+
+              <section class="upload-cards-container">
+                <div class="upload">
+                  <div
+                    class="upload-box-wrapper"
+                    style="width: 100%; display: flex; flex-direction: row"
+                  >
+                    <div class="upload-box">
+                      <img
+                        [src]="assetUrl + '/assets/svgs/CreateDocument.svg'"
+                        alt=""
+                      />
+                      <h2>Upload Document</h2>
+                      <input
+                        type="file"
+                        multiple
+                        (change)="filesSelected(det.tag, $event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <ng-container
+                  *ngIf="det.tag === UPLOAD_FILES_TYPES.ID_OF_RELATED_PARTIES"
+                >
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.relatedParties;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+
+                <ng-container
+                  *ngIf="det.tag === UPLOAD_FILES_TYPES.REGISTRATION_DOCUMENTS"
+                >
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.registration;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+
+                <ng-container
+                  *ngIf="
+                    det.tag === UPLOAD_FILES_TYPES.VERIFICATION_OF_BUSINESS
+                  "
+                >
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.license;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+
+                <ng-container
+                  *ngIf="
+                    det.tag === UPLOAD_FILES_TYPES.BUSINESS_ADDRESS_DOCUMENTS
+                  "
+                >
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.businessAddress;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+
+                <ng-container
+                  *ngIf="
+                    det.tag === UPLOAD_FILES_TYPES.BUSINESS_OPERATING_LICENSE
+                  "
+                >
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.permit;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+
+                <ng-container *ngIf="det.tag === UPLOAD_FILES_TYPES.RESOLUTION">
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.resolution;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+              </section>
+              <div class="divider-line-2"></div>
+            </section>
+          </div>
+
+          <div class="third-upload-section">
+            <div class="divider">
+              <h2 class="part-header">Part Three</h2>
+
+              <div class="divider-line"></div>
+            </div>
+
+            <section class="upload-boxes" *ngFor="let det of arrDetails3">
+              <h3 class="mini-upload-title">{{ det.title }}</h3>
+
+              <section class="upload-cards-container">
+                <div class="upload">
+                  <div
+                    class="upload-box-wrapper"
+                    style="width: 100%; display: flex; flex-direction: row"
+                  >
+                    <div class="upload-box">
+                      <img
+                        [src]="assetUrl + '/assets/svgs/CreateDocument.svg'"
+                        alt=""
+                      />
+                      <h2>Upload Document</h2>
+                      <input
+                        type="file"
+                        multiple
+                        (change)="filesSelected(det.tag, $event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <ng-container *ngIf="det.tag === UPLOAD_FILES_TYPES.FATCA_1">
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.fatca1;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+                <ng-container *ngIf="det.tag === UPLOAD_FILES_TYPES.FATCA_2">
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.fatca2;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+                <ng-container *ngIf="det.tag === UPLOAD_FILES_TYPES.FATCA_3">
+                  <app-file-preview
+                    *ngFor="
+                      let file of documentUploadInfo.fatca3;
+                      let fileCount = index
+                    "
+                    [file]="file"
+                    (removeFile)="removeDocument(fileCount, det.tag, $event)"
+                  >
+                  </app-file-preview>
+                </ng-container>
+              </section>
+              <div class="divider-line-2"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </section>
+  </section>
+
+  <ng-container *ngSwitchCase="PROGRESS.LOADING">
+    <section class="loader-screen">
+      <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+    </section>
+  </ng-container>
+</ng-container>
